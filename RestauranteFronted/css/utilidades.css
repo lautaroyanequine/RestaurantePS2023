@@ -1,0 +1,32 @@
+
+.contenedor {
+
+    max-width: 120rem;
+    margin: 0 auto;
+}
+.contenedor2 {
+
+    max-width: 100rem;
+    margin: 0 auto;
+}
+.contenedor3 {
+
+    max-width: 90rem;
+    margin: 0 auto;
+}
+.relative{
+    position: relative;
+}
+.absolute{
+    position: absolute;
+}
+.no-margin{
+    margin: 0;
+}
+.no-pading{
+    padding: 0%;
+}
+.centrar-texto{
+    text-align: center;
+}
+
