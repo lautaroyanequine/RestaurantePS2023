@@ -13,6 +13,12 @@
 
     max-width: 90rem;
     margin: 0 auto;
+    padding: 0;
+}
+.contenedor4 {
+
+    max-width: 80rem;
+    margin: 0 auto;
 }
 .relative{
     position: relative;
