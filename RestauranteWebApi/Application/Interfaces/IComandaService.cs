@@ -10,8 +10,7 @@ namespace Application.Interfaces
         public void Update(Comanda comanda);
         public void Delete(Guid comandaId);
         public ComandaGetResponse GetComandaById(Guid comandaId);
-        public List<Comanda> GetAll();
-        public List<ComandaResponse> GetAllOrderedForDate(string? fecha = null);
+        public List<ComandaResponse> GetAll(string? fecha = null);
 
         public ComandaResponse CreateComanda(ComandaRequest request);
 

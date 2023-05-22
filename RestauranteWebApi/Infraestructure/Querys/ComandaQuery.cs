@@ -15,15 +15,11 @@ namespace Infraestructure.Querys
             _context = context;
         }
 
-        public List<Comanda> GetListComanda()
-        {
-            return _context.Comandas.OrderBy(x => x.ComandaId).ToList();
-        }
-        public List<Comanda> GetListComandaOrderedForDate(string? fecha)
+      
+        public List<Comanda> GetList(string? fecha)
         {
             IQueryable<Comanda> query = _context.Comandas.Include(tm => tm.ComandasMercaderia);
-
-            if (fecha != null)
+            if (!string.IsNullOrEmpty(fecha))
             {
                 query = query
 
@@ -31,8 +27,6 @@ namespace Infraestructure.Querys
                     .Where(x => x.Fecha.ToString().Contains(fecha));
 
             }
-
-
             return query.ToList();
         }
 

@@ -30,13 +30,13 @@ namespace RestauranteWebApi.Controllers
 
             try
             {
-                var result = _service.GetAllOrderedForDate(fecha);
+                var result = _service.GetAll(fecha);
                 return new JsonResult(result);
 
             }
             catch (DatoInvalidoException ex)
             {
-                return BadRequest(new { message = "La fecha es invalida.Asegurese de ingresar :DD-MM-AAAA" });
+                return BadRequest(new { message = "La fecha es invalida.Asegurese de ingresar :DD-MM-AAAA o AAAA-MM-DD" });
             }
 
 

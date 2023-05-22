@@ -104,22 +104,21 @@ namespace Application.Services
 
 
 
-        public List<Mercaderia> GetAll()
-        {
-            return _query.GetListMercaderia();
-        }
+      
 
-        public List<MercaderiaGetResponse> GetFilteredMercaderias(string? orden = "ASC", string? nombre = null, int? tipo = null)
+        public List<MercaderiaGetResponse> GetAll(string? orden = null, string? nombre = null, int? tipo = null)
         {
-
-            if (orden.ToUpper() != "ASC" && orden.ToUpper() != "DESC") throw new DatoInvalidoException();
-            if(tipo != null)
+            if(orden != null)
+            {
+                if (orden.ToUpper() != "ASC" && orden.ToUpper() != "DESC" ) throw new DatoInvalidoException();
+            }
+            if (tipo != null)
             {
                 if (_queryTipoMercaderia.GetTipoMercaderia((int)tipo) == null) throw new IdInvalidoException();
 
             }
 
-            var mercaderias = _query.GetListFilteredMercaderia(orden, nombre, tipo);
+            var mercaderias = _query.GetListMercaderia(orden, nombre, tipo);
             var mercaderiasResponse = new List<MercaderiaGetResponse>();
 
             foreach (var mercaderia in mercaderias)

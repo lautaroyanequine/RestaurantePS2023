@@ -39,7 +39,7 @@ namespace Application.Services
             var formaEntrega = _queryFormaEntrega.GetFormaEntrega(request.FormaEntrega);
             var id = new Guid();
             double total = 0;
-            foreach (var IdMercaderia in request.Mercaderia)
+            foreach (var IdMercaderia in request.Mercaderias)
             {
                 var aux = _queryMercaderia.GetMercaderia(IdMercaderia);
                 if (aux != null)
@@ -110,27 +110,28 @@ namespace Application.Services
             _command.RemoveComanda(comandaId);
         }
 
-        public List<Comanda> GetAll()
-        {
-            return (_query.GetListComanda());
-        }
+      
 
-        public List<ComandaResponse> GetAllOrderedForDate(string? fecha = null)
+        public List<ComandaResponse> GetAll(string? fecha = null)
         {
             DateTime fechaDateTime;
             string fechaFormatted = null;
 
             if (fecha != null)
             {
-                if (DateTime.TryParseExact(fecha, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaDateTime)) fechaFormatted = fechaDateTime.ToString("yyyy-MM-dd");
-                else if (DateTime.TryParseExact(fecha, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaDateTime)) fechaFormatted = fechaDateTime.ToString("yyyy-MM-dd");
-                else if (DateTime.TryParseExact(fecha, "dd/MM/yy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaDateTime)) fechaFormatted = fechaDateTime.ToString("yyyy-MM-dd");
-                else if (DateTime.TryParseExact(fecha, "dd-MM-yy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaDateTime)) fechaFormatted = fechaDateTime.ToString("yyyy-MM-dd");
+                if (DateTime.TryParseExact(fecha, "dd/mm/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaDateTime)) fechaFormatted = fechaDateTime.ToString("yyyy-mm-dd");
+                else if (DateTime.TryParseExact(fecha, "dd-mm-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaDateTime)) fechaFormatted = fechaDateTime.ToString("yyyy-mm-dd");
+                else if (DateTime.TryParseExact(fecha, "dd/mm/yy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaDateTime)) fechaFormatted = fechaDateTime.ToString("yyyy-mm-dd");
+                else if (DateTime.TryParseExact(fecha, "dd-mm-yy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaDateTime)) fechaFormatted = fechaDateTime.ToString("yyyy-mm-dd");
+                else if (DateTime.TryParseExact(fecha, "yyyy-mm-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaDateTime)) fechaFormatted = fechaDateTime.ToString("yyyy-mm-dd");
+                else if (DateTime.TryParseExact(fecha, "yy-mm-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaDateTime)) fechaFormatted = fechaDateTime.ToString("yyyy-mm-dd");
+                else if (DateTime.TryParseExact(fecha, "yyyy/mm/dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaDateTime)) fechaFormatted = fechaDateTime.ToString("yyyy-mm-dd");
+                else if (DateTime.TryParseExact(fecha, "yy/mm/dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaDateTime)) fechaFormatted = fechaDateTime.ToString("yyyy-mm-dd");
                 else throw new DatoInvalidoException();
             }
 
 
-            var comandas = _query.GetListComandaOrderedForDate(fechaFormatted);
+            var comandas = _query.GetList(fechaFormatted);
             var comandasResponses = new List<ComandaResponse>();
             var mercaderiaComandasResponses = new List<MercaderiaComandaResponse>();
             foreach (var comanda in comandas)

@@ -24,11 +24,11 @@ namespace RestauranteWebApi.Controllers
         [HttpGet]
         [ProducesResponseType(typeof(MercaderiaGetResponse), 200)]
         [ProducesResponseType(typeof(BadRequest), 400)]
-        public IActionResult GetAll([FromQuery] int? tipo = null, string? nombre = null, string? orden = "ASC")
+        public IActionResult GetAll([FromQuery] int? tipo = null, string? nombre = null, string? orden = null)
         {
             try
             {
-                var result = _service.GetFilteredMercaderias(orden, nombre, tipo);
+                var result = _service.GetAll(orden, nombre, tipo);
                 return new JsonResult(result);
 
             }
@@ -132,7 +132,7 @@ namespace RestauranteWebApi.Controllers
             }
             catch (IdInvalidoException idInvalido)
             {
-                return Conflict(new { message = "No se pudo modificar porque el ID ingresado de Tipo es invalido/no existe" });
+                return BadRequest(new { message = "No se pudo modificar porque el ID ingresado de Tipo es invalido/no existe" });
             }
             catch (NombreExisteException elementoInexistente)
             {
@@ -169,7 +169,6 @@ namespace RestauranteWebApi.Controllers
         [HttpDelete("{id}")]
         [ProducesResponseType(typeof(MercaderiaResponse), 200)]
         [ProducesResponseType(typeof(BadRequest), 400)]
-        [ProducesResponseType(typeof(BadRequest), 404)]
         [ProducesResponseType(typeof(BadRequest), 409)]
         public IActionResult DeleteMercaderia(int id)
         {

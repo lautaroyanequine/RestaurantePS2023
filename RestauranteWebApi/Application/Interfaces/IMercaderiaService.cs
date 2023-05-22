@@ -15,8 +15,8 @@ namespace Application.Interfaces
 
         public MercaderiaResponse Delete(int mercaderiaId);
         public MercaderiaResponse GetMercaderiaById(int mercaderiaId);
-        public List<Mercaderia> GetAll();
-        public List<MercaderiaGetResponse> GetFilteredMercaderias(string? orden = "ASC", string? nombre = null, int? tipo = null);
+
+        public List<MercaderiaGetResponse> GetAll(string? orden = null, string? nombre = null, int? tipo = null);
 
     }
 }

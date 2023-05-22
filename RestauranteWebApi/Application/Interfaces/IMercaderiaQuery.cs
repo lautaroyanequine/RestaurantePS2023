@@ -4,8 +4,7 @@ namespace Application.Interfaces
 {
     public interface IMercaderiaQuery
     {
-        List<Mercaderia> GetListMercaderia();
-        List<Mercaderia> GetListFilteredMercaderia(string? orden = "ASC", string? nombre = null, int? tipo = null);
+        List<Mercaderia> GetListMercaderia(string? orden = "ASC", string? nombre = null, int? tipo = null);
 
         Mercaderia GetMercaderia(int MercaderiaId);
 

@@ -14,10 +14,7 @@ namespace Infraestructure.Querys
             _context = context;
         }
 
-        public List<Mercaderia> GetListMercaderia()
-        {
-            return (_context.Mercaderias.OrderBy(x => x.MercaderiaId).ToList());
-        }
+      
 
         public Mercaderia GetMercaderia(int MercaderiaId)
         {
@@ -31,7 +28,7 @@ namespace Infraestructure.Querys
                 );
 
         }
-        public List<Mercaderia> GetListFilteredMercaderia(string? orden = "ASC", string? nombre = null, int? tipo = null)
+        public List<Mercaderia> GetListMercaderia(string? orden = "ASC", string? nombre = null, int? tipo = null)
         {
             IQueryable<Mercaderia> query = _context.Mercaderias;
 
@@ -43,8 +40,12 @@ namespace Infraestructure.Querys
             {
                 query = query.Where(p => p.TipoMercaderia.TipoMercaderiaId == tipo);
             }
-            if (orden.ToUpper() == "ASC") query = query.OrderBy(p => p.Precio);
-            else if (orden.ToUpper() == "DESC") query = query.OrderByDescending(p => p.Precio);
+            if(orden != null)
+            {
+                if (orden.ToUpper() == "ASC") query = query.OrderBy(p => p.Precio);
+                else if (orden.ToUpper() == "DESC") query = query.OrderByDescending(p => p.Precio);
+            }
+          
 
             return query.ToList();
         }
