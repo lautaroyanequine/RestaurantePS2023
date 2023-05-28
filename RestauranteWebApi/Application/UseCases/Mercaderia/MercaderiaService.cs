@@ -38,7 +38,6 @@ namespace Application.Services
                 if (request.Preparacion.Length <= 10) throw new PreparacionException();
                 if (request.Ingredientes.Length <= 10) throw new IngredientesException();
 
-                if (!request.Imagen.Contains(".jpg") && !request.Imagen.Contains(".png")) throw new ImagenException();
 
                 var mercaderia = new Mercaderia
                 {
@@ -112,11 +111,7 @@ namespace Application.Services
             {
                 if (orden.ToUpper() != "ASC" && orden.ToUpper() != "DESC" ) throw new DatoInvalidoException();
             }
-            if (tipo != null)
-            {
-                if (_queryTipoMercaderia.GetTipoMercaderia((int)tipo) == null) throw new IdInvalidoException();
-
-            }
+          
 
             var mercaderias = _query.GetListMercaderia(orden, nombre, tipo);
             var mercaderiasResponse = new List<MercaderiaGetResponse>();
@@ -179,7 +174,8 @@ namespace Application.Services
             if (request.Preparacion.Length <= 10) throw new PreparacionException();
             if (request.Ingredientes.Length <= 10) throw new IngredientesException();
             if (!request.Imagen.Contains(".jpg") && !request.Imagen.Contains(".png")) throw new ImagenException();
-            if (_query.GetMercaderia(request.Nombre.ToUpper()) != null) throw new NombreExisteException();
+            if (_query.GetMercaderia(request.Nombre.ToUpper()) != null  && (_query.GetMercaderia(request.Nombre.ToUpper()).MercaderiaId != mercaderiaId ) ) throw new NombreExisteException();
+
 
             var mercaderia = _command.ActualizeMercaderia(mercaderiaId, request);
             if (mercaderia != null)

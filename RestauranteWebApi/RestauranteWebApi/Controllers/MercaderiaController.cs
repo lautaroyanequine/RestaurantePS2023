@@ -24,7 +24,7 @@ namespace RestauranteWebApi.Controllers
         [HttpGet]
         [ProducesResponseType(typeof(MercaderiaGetResponse), 200)]
         [ProducesResponseType(typeof(BadRequest), 400)]
-        public IActionResult GetAll([FromQuery] int? tipo = null, string? nombre = null, string? orden = null)
+        public IActionResult GetAll([FromQuery] int? tipo = null, string? nombre = null, string? orden = "ASC")
         {
             try
             {
@@ -37,9 +37,9 @@ namespace RestauranteWebApi.Controllers
                 return BadRequest(new { message = "El valor del orden es inválido. Solo se permite 'ASC' o 'DESC" });
 
             }
-            catch (IdInvalidoException elementoInexistente)
+            catch (Exception e)
             {
-                return BadRequest(new { message = "El tipo de mercaderia ingresado no existe" });
+                return BadRequest(new { message = "Ingreso un parametro invalido" });
 
             }
         }
@@ -66,12 +66,7 @@ namespace RestauranteWebApi.Controllers
                 return BadRequest(new { message = "No se pudo crear porque el ID ingresado del Tipo de Mercaderia es invalido/no existe" });
 
             }
-            catch (ImagenException img)
-            {
-                return BadRequest(new { message = "La imagen debe ser .png o .jpg" });
-
-
-            }
+           
             catch (PreparacionException pre)
             {
                 return BadRequest(new { message = "La prepraracion debe tener minimamente mas de 10 caracteres" });
@@ -170,6 +165,8 @@ namespace RestauranteWebApi.Controllers
         [ProducesResponseType(typeof(MercaderiaResponse), 200)]
         [ProducesResponseType(typeof(BadRequest), 400)]
         [ProducesResponseType(typeof(BadRequest), 409)]
+        [ProducesResponseType(typeof(BadRequest), 404)]
+
         public IActionResult DeleteMercaderia(int id)
         {
             try
@@ -180,7 +177,12 @@ namespace RestauranteWebApi.Controllers
             catch (IdInvalidoException idInvalido)
             { return Conflict(new { message = "No se pudo eliminar esta mercaderia porque una encomienda depende de ella" }); }
             catch (ElementoInexistenteException elementoInexistente)
-            { return BadRequest(new { message = "No existe la mercaderia que quiere eliminar" }); }
+            { return NotFound(new { message = "No existe la mercaderia que quiere eliminar" }); }
+            catch(Exception e)
+            {
+                return BadRequest(new { message = "Ingreso un parametro erroneo" }); 
+
+            }
         }
     }
 }

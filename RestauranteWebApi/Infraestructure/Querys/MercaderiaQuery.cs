@@ -28,7 +28,7 @@ namespace Infraestructure.Querys
                 );
 
         }
-        public List<Mercaderia> GetListMercaderia(string? orden = "ASC", string? nombre = null, int? tipo = null)
+        public List<Mercaderia> GetListMercaderia(string? orden = null, string? nombre = null, int? tipo = null)
         {
             IQueryable<Mercaderia> query = _context.Mercaderias;
 

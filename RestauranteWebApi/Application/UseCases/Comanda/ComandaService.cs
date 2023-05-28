@@ -127,6 +127,11 @@ namespace Application.Services
                 else if (DateTime.TryParseExact(fecha, "yy-mm-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaDateTime)) fechaFormatted = fechaDateTime.ToString("yyyy-mm-dd");
                 else if (DateTime.TryParseExact(fecha, "yyyy/mm/dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaDateTime)) fechaFormatted = fechaDateTime.ToString("yyyy-mm-dd");
                 else if (DateTime.TryParseExact(fecha, "yy/mm/dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaDateTime)) fechaFormatted = fechaDateTime.ToString("yyyy-mm-dd");
+                else if (DateTime.TryParseExact(fecha, "yy/m/d", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaDateTime)) fechaFormatted = fechaDateTime.ToString("yyyy-mm-dd");
+                else if (DateTime.TryParseExact(fecha, "yyyy/m/d", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaDateTime)) fechaFormatted = fechaDateTime.ToString("yyyy-mm-dd");
+                else if (DateTime.TryParseExact(fecha, "yyyy-m-d", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaDateTime)) fechaFormatted = fechaDateTime.ToString("yyyy-mm-dd");
+
+
                 else throw new DatoInvalidoException();
             }
 

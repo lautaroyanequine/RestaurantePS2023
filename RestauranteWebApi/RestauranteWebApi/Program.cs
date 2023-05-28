@@ -41,7 +41,15 @@ builder.Services.AddScoped<IFormaEntregaCommand, FormaEntregaCommand>();
 builder.Services.AddScoped<IFormaEntregaQuery, FormaEntregaQuery>();
 
 
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
 
 
 var app = builder.Build();
@@ -56,6 +64,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseCors("AllowAll");
 
 app.MapControllers();
 
