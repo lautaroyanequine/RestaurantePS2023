@@ -1,6 +1,6 @@
 export default function Menu(mercaderia){
     return ` 
-    <li data-id-mercaderia=${mercaderia.id}>
+    <li data-id-mercaderia=${mercaderia.id} data-id-tipo-mercaderia=${mercaderia.tipo.id} class="mercaderiaIndividual">
         <div class="mercaderia contenedor3">
             <img class="foto-mercaderia" src="${mercaderia.imagen}">
             <div class="texto-mercaderia">

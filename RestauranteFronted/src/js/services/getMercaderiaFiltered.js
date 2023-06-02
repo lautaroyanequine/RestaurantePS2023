@@ -6,7 +6,6 @@ const getMercaderia = async(filtrarPor,buscarPorNombre,ordenarPor) =>{
     {
         return;
     }
-    console.log(`https://localhost:7030/api/v1/Mercaderia?tipo=${filtrarPor}&nombre=${buscarPorNombre}&orden=${ordenarPor}`);
 
     let response = await fetch(`https://localhost:7030/api/v1/Mercaderia?tipo=${filtrarPor}&nombre=${buscarPorNombre}&orden=${ordenarPor}`);
         if(response.ok){
@@ -20,7 +19,6 @@ const getMercaderia = async(filtrarPor,buscarPorNombre,ordenarPor) =>{
                 mercaderiaDetalle.push(await resultadoDetalle.json());
             }
         }
-        console.log(mercaderiaDetalle);
         return mercaderiaDetalle ; 
     }
 

@@ -10,15 +10,18 @@ function iniciarApp(){
     mostrarMercaderias();
     ocultarMercaderias(document.querySelectorAll(".logo-desplegable"));
     busquedaFiltrada();
+
 }
 
 async function mostrarMercaderias(){
     try{
         let data = await Api.Get();
         data.forEach(mercaderiaDetalle => {
-            let tipo=document.getElementById(`${mercaderiaDetalle.tipo.descripcion.replace(/\s/g,"")}`);
+            let tipo = document.querySelector(`[data-id="${mercaderiaDetalle.tipo.id}"]`);
             tipo.innerHTML+=Menu(mercaderiaDetalle);
         })
+        direccionarMercaderia();
+
     }
 
     catch(error)
@@ -66,7 +69,6 @@ for (let i = 0; i < hijos.length; i++) {
     const hijo = hijos[i];
     if(hijo.classList.contains('d-none')) aux=true;
 }
-console.log(aux);
 
 for (let i = 0; i < hijos.length; i++) {
 
@@ -106,11 +108,14 @@ async function   handleFiltrarMercaderia(order,filter,name) {
       });
     });
 
+   
+  ordenarPorPrecio(ordenarPor);
+  data.forEach(mercaderiaDetalle => {
 
-    data.forEach(mercaderiaDetalle => {
+   
+
         let tipo=document.getElementById(`${mercaderiaDetalle.tipo.descripcion.replace(/\s/g,"")}`);
         let elemento = document.querySelector(`li[data-id-mercaderia="${mercaderiaDetalle.id}"]`);
-
         if(elemento.classList.contains('d-none')) elemento.classList.remove('d-none');
         else elemento.classList.add('d-none');
 
@@ -119,3 +124,76 @@ async function   handleFiltrarMercaderia(order,filter,name) {
 
   
   }
+
+
+  function ordenarPorPrecio(orden){
+    const elementosAuxiliares = document.querySelectorAll(".auxiliar");
+    
+    const elementosMercaderia = [];
+    elementosAuxiliares.forEach(elemento =>{
+        elementosMercaderia.push(elemento);
+    });
+   
+    
+    const hijosMercaderia = [];
+    elementosAuxiliares.forEach(elemento =>{
+        const hijos = Array.from(elemento.getElementsByTagName('li'));
+        hijosMercaderia.push(...hijos);
+    });
+
+  hijosMercaderia.sort(function(a, b) {
+    const precioA = obtenerPrecio(a);
+    const precioB = obtenerPrecio(b);
+
+    if (orden === 'DESC') {
+      return precioB - precioA; // Ordenar de mayor a menor
+    } else {
+      return precioA - precioB; // Ordenar de menor a mayor
+    }
+  });
+
+  elementosMercaderia.forEach(mercaderia => {
+    while(mercaderia.firstChild){
+        mercaderia.firstChild.remove();
+    }
+  });
+
+  // Añadir los elementos ordenados nuevamente a la lista de mercadería
+  hijosMercaderia.forEach(elemento => {
+    if (!elemento.dataset.idTipoMercaderia) {
+      return;
+    }
+    let tipo = document.querySelector(`[data-id="${elemento.dataset.idTipoMercaderia}"]`);
+    tipo.appendChild(elemento);
+  });
+}
+function obtenerPrecio(elemento) {
+    const precioElemento = elemento.querySelector('.precio-mercaderia');
+    return precioElemento ? parseFloat(precioElemento.textContent.replace('$','')) : 0;
+  }
+  
+function direccionarMercaderia(){
+  const mercaderias = document.querySelectorAll('.mercaderiaIndividual');
+
+  mercaderias.forEach(mercaderia =>{
+
+    mercaderia.addEventListener('click',() =>{
+      console.log(mercaderia);
+      const idMercaderia = mercaderia.dataset.idMercaderia;
+      const idTipoMercaderia = mercaderia.dataset.idTipoMercaderia;
+      const urlProducto = `producto.html?id=${idMercaderia}&tipo=${idTipoMercaderia}`;
+
+      console.log(urlProducto);
+      window.location.href = urlProducto;
+
+
+    })
+    });
+  
+
+}
+
+
+
+
+

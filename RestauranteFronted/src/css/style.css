@@ -358,7 +358,7 @@ font-weight: bold;
     position:absolute;
     margin:1rem ;
     filter: invert(36%) sepia(0%) saturate(0%) hue-rotate(259deg) brightness(96%) contrast(81%);
-    top: 75%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%);
     background-color:rgba(140, 140, 140, 0.5);
