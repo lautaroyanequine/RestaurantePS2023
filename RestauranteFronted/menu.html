@@ -28,226 +28,157 @@
             <img class="header-menu" src="src/img/header_Menu.png" alt="Header Menu">
         </div>
         <div class="barra-formaEntrega contenedor3">
-            <div class="forma-entrega">
-                <object data="/img/logo_Salon.svg" type="image/svg+xml" class="logo-forma-entrega" ></object>
+            <div class="forma-entrega"  data-id-forma-entrega ="1">
+                <img src="src/img/logo_Salon.svg" class="logo-forma-entrega" ></img>
                 <p> En el local</p>
             </div>
-            <div class="forma-entrega">
-                <object data="/img/logo_delivery.svg" type="image/svg+xml" class="logo-forma-entrega"></object>
+            <div class="forma-entrega" data-id-forma-entrega ="2">
+                <img src="src/img/logo_delivery.svg"class="logo-forma-entrega"></img>
                 <p> Delivery</p>
             </div>
-            <div class="forma-entrega">
-                <object data="/img/logo_PedidosYa.svg" type="image/svg+xml" class="logo-forma-entrega-activo" ></object>
+            <div class="forma-entrega" data-id-forma-entrega ="3">
+                <img src="src/img/logo_PedidosYa.svg" class="logo-forma-entrega" ></img>
                 <p> Pedidos Ya</p>
             </div>
         </div>
         <div class="barra-busqueda contenedor3">
             <div class="busqueda">
-                <object data="/img/icono_ordenar.svg" type="image/svg+xml"></object>
-                <select >
+                <object data="src/img/icono_ordenar.svg" type="image/svg+xml"></object>
+                <select id="ordenarPor">
                     <option value="" disabled selected>Ordenar por...</option>
-                    <option value="">Mayor Precio</option>
-                    <option value="">Menor Precio</option>
-
+                    <option value="DESC">Mayor Precio</option>
+                    <option value="ASC">Menor Precio</option>
                 </select>
             </div>
-            <div class="busqueda">
-                <object data="/img/icono_filter.svg" type="image/svg+xml"  ></object>
-                <select >
+            <div class="busqueda" >
+                <object data="src/img/icono_filter.svg" type="image/svg+xml"  ></object>
+                <select id="filtrarPor" >
                     <option value="" disabled selected>Filtrar por...</option>
-                    <option value="">Entradas</option>
-                    <option value="">Minutas</option>
-                    <option value="">Pastas</option>
-                    <option value="">Parrilla</option>
-                    <option value="">Pizzas</option>
-                    <option value="">Sandiwchs</option>
-                    <option value="">Ensaladas</option>
-                    <option value="">Bebidas</option>
-                    <option value="">Cervezas Artesanales</option>
+                    <option value="1">Entradas</option>
+                    <option value="2">Minutas</option>
+                    <option value="3">Pastas</option>
+                    <option value="4">Parrilla</option>
+                    <option value="5">Pizzas</option>
+                    <option value="6">Sandiwchs</option>
+                    <option value="7">Ensaladas</option>
+                    <option value="8">Bebidas</option>
+                    <option value="9">Cervezas Artesanales</option>
+                    <option value="10">Postres</option>
+                    <option value="">Todo</option>
+
+
 
                 </select>
             </div>
             <div class="busqueda">
-                <object data="/img/icono_lupa.svg" type="image/svg+xml" ></object>
-                <input type="text"placeholder="Buscar...">
+                <object data="src/img/icono_lupa.svg" type="image/svg+xml" ></object>
+                <input type="text"placeholder="Buscar..." id="buscarMercaderia">
             </div>
         </div>
 
         <ul class="contenedor3 no-pading">
-            <li id="Entradas">
+            <li>  <!--   ENTRADAS -->
                 <div  class="tipo-mercaderia">
                     <div class="tipo-mercaderia-header">
                         <h3 class="tipo-mercaderia-texto">Entradas</h3>
-                        <object data="src/img/icono_desplegable.svg" type="image/svg+xml"></object>
-                        
+                        <img src="src/img/icono_desplegable.svg" class="logo-desplegable" data-tipo="Entrada"></img>
                     </div>
-                    <ul class="no-pading" id="prueba"> 
+                    <ul class="no-pading" id="Entrada"> 
                         <li>
-                            <div class="mercaderia contenedor3">
-                                <img class="foto-mercaderia" src="src/img/comida.jpg" alt="">
-                                <div class="texto-mercaderia">
-                                    <h4 class="no-margin">Rabas a la romana</h4>
-                                    <p class="no-margin " >Compuesta de rodajas finas de calamares empanadas 
-                                    y fritas. Se sirven calientes, acompañadas con alioli.</p>
-                                </div>
-                                <p class="precio-mercaderia">$3.000</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="mercaderia contenedor3">
-                                <img class="foto-mercaderia" src="src/img/comida.jpg" alt="">
-                                <div class="texto-mercaderia">
-                                    <h4 class="no-margin">Rabas a la romana</h4>
-                                    <p class="no-margin " >Compuesta de rodajas finas de calamares empanadas 
-                                    y fritas. Se sirven calientes, acompañadas con alioli.</p>
-                                </div>
-                                <p class="precio-mercaderia">$3.000</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="mercaderia contenedor3">
-                                <img class="foto-mercaderia" src="src/img/comida.jpg" alt="">
-                                <div class="texto-mercaderia">
-                                    <h4 class="no-margin">Rabas a la romana</h4>
-                                    <p class="no-margin " >Compuesta de rodajas finas de calamares empanadas 
-                                    y fritas. Se sirven calientes, acompañadas con alioli.</p>
-                                </div>
-                                <p class="precio-mercaderia">$3.000</p>
-                            </div>
+                            
                         </li>
                        
                     </ul>
                 </div>
             </li>
-            <li id="Minutas">
+            <li >  <!--   MINUTAS -->
                 <div class="tipo-mercaderia">
                     <div class="tipo-mercaderia-header">
                         <h3 class="tipo-mercaderia-texto">Minutas</h3>
-                        <object data="src/img/icono_desplegable.svg" type="image/svg+xml"></object>
-                        
+                        <img src="src/img/icono_desplegable.svg" class="logo-desplegable" data-tipo="Minutas"></img>                        
                     </div>
-                    <ul class="no-pading"> 
-                        <li>
-                            <div class="mercaderia contenedor3">
-                                <img class="foto-mercaderia" src="src/img/comida.jpg" alt="">
-                                <div class="texto-mercaderia">
-                                    <h4 class="no-margin">Rabas a la romana</h4>
-                                    <p class="no-margin " >Compuesta de rodajas finas de calamares empanadas 
-                                    y fritas. Se sirven calientes, acompañadas con alioli.</p>
-                                </div>
-                                <p class="precio-mercaderia">$3.000</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="mercaderia contenedor3">
-                                <img class="foto-mercaderia" src="src/img/comida.jpg" alt="">
-                                <div class="texto-mercaderia">
-                                    <h4 class="no-margin">Rabas a la romana</h4>
-                                    <p class="no-margin " >Compuesta de rodajas finas de calamares empanadas 
-                                    y fritas. Se sirven calientes, acompañadas con alioli.</p>
-                                </div>
-                                <p class="precio-mercaderia">$3.000</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="mercaderia contenedor3">
-                                <img class="foto-mercaderia" src="src/img/comida.jpg" alt="">
-                                <div class="texto-mercaderia">
-                                    <h4 class="no-margin">Rabas a la romana</h4>
-                                    <p class="no-margin " >Compuesta de rodajas finas de calamares empanadas 
-                                    y fritas. Se sirven calientes, acompañadas con alioli.</p>
-                                </div>
-                                <p class="precio-mercaderia">$3.000</p>
-                            </div>
-                        </li>
+                    <ul class="no-pading" id="Minutas"> 
+            
                        
                     </ul>
                 </div>
             </li>
-            <li id="Pastas">
+            <li >  <!--   PASTAS -->
                 <div class="tipo-mercaderia">
                     <div class="tipo-mercaderia-header">
                         <h3 class="tipo-mercaderia-texto">Pastas</h3>
-                        <object data="src/img/icono_desplegable.svg" type="image/svg+xml"></object>
-                        
+                        <img src="src/img/icono_desplegable.svg" class="logo-desplegable" data-tipo="Pastas"></img>
                     </div>
-                   
+                    <ul class="no-pading" id="Pastas">  </ul>
                 </div>
             </li>
 
-            <li id="Parrilla">
+            <li >  <!--   PARRILLA -->
                 <div class="tipo-mercaderia">
                     <div class="tipo-mercaderia-header">
                         <h3 class="tipo-mercaderia-texto">Parrilla</h3>
-                        <object data="src/img/icono_desplegable.svg" type="image/svg+xml"></object>
-                        
+                        <img src="src/img/icono_desplegable.svg" class="logo-desplegable" data-tipo="Parrilla"></img>
                     </div>
-                   
+                    <ul class="no-pading" id="Parrilla"> </ul>
                 </div>
             </li>
 
 
-            <li id="Pizzas">
+            <li >  <!--   PIZZAS -->
                 <div class="tipo-mercaderia">
                     <div class="tipo-mercaderia-header">
                         <h3 class="tipo-mercaderia-texto">Pizzas</h3>
-                        <object data="src/img/icono_desplegable.svg" type="image/svg+xml"></object>
-                        
+                        <img src="src/img/icono_desplegable.svg" class="logo-desplegable" data-tipo="Pizzas"></img>
                     </div>
-                   
+                    <ul class="no-pading" id="Pizzas"> </ul>
                 </div>
             </li>
 
-            <li id="Sandwich">
+            <li >  <!--   SANDWICH -->
                 <div class="tipo-mercaderia">
                     <div class="tipo-mercaderia-header">
                         <h3 class="tipo-mercaderia-texto">Sandwichs</h3>
-                        <object data="src/img/icono_desplegable.svg" type="image/svg+xml"></object>
-                        
+                        <img src="src/img/icono_desplegable.svg" class="logo-desplegable" data-tipo="Sandwich"></img>
                     </div>
-                   
+                    <ul class="no-pading" id="Sandwich"> </ul>
                 </div>
             </li>
             
-            <li id="Ensaladas">
+            <li >
                 <div class="tipo-mercaderia">
                     <div class="tipo-mercaderia-header">
                         <h3 class="tipo-mercaderia-texto">Ensaladas</h3>
-                        <object data="src/img/icono_desplegable.svg" type="image/svg+xml"></object>
-                        
+                        <img src="src/img/icono_desplegable.svg" class="logo-desplegable" data-tipo="Ensaladas"></img>
                     </div>
-                   
+                    <ul class="no-pading" id="Ensaladas"> </ul>
                 </div>
             </li>
 
-            <li id="Bebidas">
+            <li >
                 <div class="tipo-mercaderia">
                     <div class="tipo-mercaderia-header">
                         <h3 class="tipo-mercaderia-texto">Bebidas</h3>
-                        <object data="src/img/icono_desplegable.svg" type="image/svg+xml"></object>
-                        
+                        <img src="src/img/icono_desplegable.svg" class="logo-desplegable" data-tipo="Bebidas"></img>
                     </div>
-                   
+                    <ul class="no-pading" id="Bebidas"> </ul>
                 </div>
             </li>
-            <li id="Cerveza Artesanal">
+            <li>
                 <div class="tipo-mercaderia">
                     <div class="tipo-mercaderia-header">
                         <h3 class="tipo-mercaderia-texto">Cervezas Artesanales</h3>
-                        <object data="src/img/icono_desplegable.svg" type="image/svg+xml"></object>
-                        
+                        <img src="src/img/icono_desplegable.svg" class="logo-desplegable" data-tipo="CervezaArtesanal"></img>
                     </div>
-                   
+                    <ul class="no-pading" id="CervezaArtesanal"> </ul>
                 </div>
             </li>
-            <li id="Postres">
+            <li>
                 <div class="tipo-mercaderia">
                     <div class="tipo-mercaderia-header">
                         <h3 class="tipo-mercaderia-texto">Postres</h3>
-                        <object data="src/img/icono_desplegable.svg" type="image/svg+xml"></object>
-                        
+                        <img src="src/img/icono_desplegable.svg" class="logo-desplegable"data-tipo="Postres"></img>
                     </div>
-                   
+                    <ul class="no-pading" id="Postres"> </ul>
                 </div>
             </li>
 
@@ -269,7 +200,9 @@
         </div>
     </footer>
 
-    <script src="src/js/app.js"></script>
+    <script src="src/js/views/menuApp.js" type="module"></script>
+    <script src="src/js/components/menu/menu.js" type="module"></script>
+
 
 </body>
 </html>

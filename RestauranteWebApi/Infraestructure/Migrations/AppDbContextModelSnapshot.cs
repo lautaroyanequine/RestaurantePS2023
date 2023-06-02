@@ -146,29 +146,29 @@ namespace Infraestructure.Migrations
                         new
                         {
                             MercaderiaId = 1,
-                            Imagen = "imagen_TortilladePapas ",
+                            Imagen = "https://images.unsplash.com/photo-1639669794539-952631b44515?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1521&q=80",
                             Ingredientes = "Papa,Chorizo colorado,Huevos,Cebolla,Queso",
                             Nombre = "Tortilla de papas",
                             Precio = 800,
-                            Preparacion = " Para preparar tortilla de papas: freír papas y cebolla en aceite, mezclar con huevo batido, sazonar, verter en sartén, cocinar a fuego medio-bajo hasta dorar por ambos lados, retirar de la sartén y dejar enfriar.",
+                            Preparacion = "Para preparar tortilla de papas: freír papas y cebolla en aceite, mezclar con huevo batido, sazonar, verter en sartén, cocinar a fuego medio-bajo hasta dorar por ambos lados, retirar de la sartén y dejar enfriar.",
                             TipoMercaderiaId = 1
                         },
                         new
                         {
                             MercaderiaId = 2,
-                            Imagen = "imagen_NachosConQueso",
-                            Ingredientes = "Naachos,Queso cheddar,Tomate,Verdeo,Guacamole",
+                            Imagen = "https://images.unsplash.com/photo-1619604107557-b5321217aee7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80",
+                            Ingredientes = "Nachos,Queso cheddar,Tomate,Verdeo,Guacamole",
                             Nombre = "Nachos con queso y guacamole",
                             Precio = 600,
-                            Preparacion = "colocar nachos en una bandeja, agregar queso rallado, hornear a 180°C por unos minutos hasta que el queso se derrita, retirar del horno y servir con salsa y guacamole.",
+                            Preparacion = "Colocar nachos en una bandeja, agregar queso rallado, hornear a 180°C por unos minutos hasta que el queso se derrita, retirar del horno y servir con salsa y guacamole.",
                             TipoMercaderiaId = 1
                         },
                         new
                         {
                             MercaderiaId = 3,
-                            Imagen = "imagen_MilanesasPapasFritas",
+                            Imagen = "https://astelus.com/wp-content/viajes/Plato-de-milanesa-con-papas-ti%CC%81pico-de-Argentina.jpg.webp",
                             Ingredientes = "Milanesas de peceto y papas",
-                            Nombre = "Milanesas con papa fritas",
+                            Nombre = "Milanesa con papa fritas",
                             Precio = 1500,
                             Preparacion = "pasar la carne por huevo batido y pan rallado, freír en aceite caliente hasta dorar ambos lados, acompañar con papas fritas previamente cortadas y fritas en aceite caliente, escurrir el exceso de aceite y servir caliente con limón y/o salsa al gusto.",
                             TipoMercaderiaId = 2
@@ -176,9 +176,9 @@ namespace Infraestructure.Migrations
                         new
                         {
                             MercaderiaId = 4,
-                            Imagen = "imagen_MilanesasNapoPapasFritas",
+                            Imagen = "https://www.lanacion.com.ar/resizer/jJalmcLXGFkG8Xj37KLQ74hBcJ0=/1200x800/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VLWFAANIWBGPFO4CSUHS7RYVVQ.jpg",
                             Ingredientes = "Milanesas de peceto y papas",
-                            Nombre = "Milanesas napolitana con papa fritas",
+                            Nombre = "Milanesa napolitana con papa fritas",
                             Precio = 1500,
                             Preparacion = "Para preparar milanesas napolitanas con papas fritas, sigue los pasos para las milanesas simples. Después de freír las milanesas, cúbrelas con salsa de tomate y queso mozzarella rallado. Hornea durante 5-7 minutos o hasta que el queso se derrita. ",
                             TipoMercaderiaId = 2
@@ -186,7 +186,7 @@ namespace Infraestructure.Migrations
                         new
                         {
                             MercaderiaId = 5,
-                            Imagen = "imagen_SpaghettiScarparo",
+                            Imagen = "https://images.unsplash.com/photo-1614777986387-015c2a89b696?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
                             Ingredientes = "Crema. oliva, ajo, verdeo, pomodoro fresco y pesto genovés",
                             Nombre = "Spaghetti Scarparo",
                             Precio = 2400,
@@ -196,7 +196,7 @@ namespace Infraestructure.Migrations
                         new
                         {
                             MercaderiaId = 6,
-                            Imagen = "imagen_SorrentinosPannaDiChampignones",
+                            Imagen = "https://cucinadonore.com/assets/img/carta/02/ravioli-di-zucca-alla-panna-mandorle.jpg?1683158400071",
                             Ingredientes = "Sorrentinos,Crema, ajo, Champignones y jerez",
                             Nombre = "Sorrentinos Panna di Champignones",
                             Precio = 2900,
@@ -206,7 +206,7 @@ namespace Infraestructure.Migrations
                         new
                         {
                             MercaderiaId = 7,
-                            Imagen = "imagen_BifeDeChorizo",
+                            Imagen = "https://media-cdn.tripadvisor.com/media/photo-s/19/2f/17/8b/bife-de-chorizo-con-papas.jpg",
                             Ingredientes = "Bife de Chorizo y acompañamiento",
                             Nombre = "Bife de Chorizo. C/ Papas o Ensalada",
                             Precio = 3000,
@@ -216,7 +216,7 @@ namespace Infraestructure.Migrations
                         new
                         {
                             MercaderiaId = 8,
-                            Imagen = "imagen_TapaDeAsado",
+                            Imagen = "https://images.unsplash.com/photo-1529694157872-4e0c0f3b238b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
                             Ingredientes = "Tapa de Asado y acompañamiento",
                             Nombre = "Tapa de Asado. C/ Papas o Ensalada",
                             Precio = 2800,
@@ -226,7 +226,7 @@ namespace Infraestructure.Migrations
                         new
                         {
                             MercaderiaId = 9,
-                            Imagen = "imagen_PizzaMuzzarella",
+                            Imagen = "https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
                             Ingredientes = "Pizza con salsa y muzaarella",
                             Nombre = "Pizza Muzzarella",
                             Precio = 2000,
@@ -236,7 +236,7 @@ namespace Infraestructure.Migrations
                         new
                         {
                             MercaderiaId = 10,
-                            Imagen = "imagen_Fugazzeta",
+                            Imagen = "https://images.unsplash.com/photo-1644398324665-57647e829ca2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80",
                             Ingredientes = "Fugazzeta con cebolla,morron, jamon y queso",
                             Nombre = "Fugazzeta",
                             Precio = 3000,
@@ -246,7 +246,7 @@ namespace Infraestructure.Migrations
                         new
                         {
                             MercaderiaId = 11,
-                            Imagen = "imagen_SandwichMilanesasPapasFritas",
+                            Imagen = "https://www.comedera.com/wp-content/uploads/2021/06/sandwich-de-milanesa.jpg",
                             Ingredientes = "Milanesa de carne y papas fritas",
                             Nombre = "Sandwich de Milanesa con Papas Fritas",
                             Precio = 2000,
@@ -256,7 +256,7 @@ namespace Infraestructure.Migrations
                         new
                         {
                             MercaderiaId = 12,
-                            Imagen = "imagen_SandwichBondiola",
+                            Imagen = "https://www.recetasnatura.com.ar/sites/default/files/sandwich-de-bondiola-caramelizada-c.jpg",
                             Ingredientes = "Bondiola,Queso Provolone,Cebolla Caramelizada",
                             Nombre = "Sandwich de Bondiola",
                             Precio = 2000,
@@ -266,7 +266,7 @@ namespace Infraestructure.Migrations
                         new
                         {
                             MercaderiaId = 13,
-                            Imagen = "imagen_EnsaladaCesar",
+                            Imagen = "https://images.unsplash.com/photo-1574926054530-540288c8e678?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
                             Ingredientes = "Lechuga romana,Queso parmesano rallado,Croutones,Salsa César (mayonesa, ajo, jugo de limón, mostaza Dijon, anchoas y queso parmesano rallado)",
                             Nombre = "Ensalda Cesar",
                             Precio = 1200,
@@ -276,7 +276,7 @@ namespace Infraestructure.Migrations
                         new
                         {
                             MercaderiaId = 14,
-                            Imagen = "imagen_EnsaladaRusa",
+                            Imagen = "https://recetarius.com/wp-content/uploads/2020/12/ensalada-rusa.jpg",
                             Ingredientes = "Papas cocidas y cortadas en cubitos,Zanahorias cocidas y cortadas en cubitos,Guisantes o arvejas cocidas,Mayonesa,Sal y pimienta al gusto",
                             Nombre = "Ensalda Rusa",
                             Precio = 900,
@@ -286,7 +286,7 @@ namespace Infraestructure.Migrations
                         new
                         {
                             MercaderiaId = 15,
-                            Imagen = "imagen_CocaCola",
+                            Imagen = "https://images.unsplash.com/photo-1624552184280-9e9631bbeee9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
                             Ingredientes = "Coca Cola 650ml ",
                             Nombre = "Coca Cola ",
                             Precio = 500,
@@ -296,7 +296,7 @@ namespace Infraestructure.Migrations
                         new
                         {
                             MercaderiaId = 16,
-                            Imagen = "imagen_AguaMineral",
+                            Imagen = "https://images.unsplash.com/photo-1638688569176-5b6db19f9d2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
                             Ingredientes = "Agua Mineral 1lt ",
                             Nombre = "Agua Mineral",
                             Precio = 500,
@@ -306,7 +306,7 @@ namespace Infraestructure.Migrations
                         new
                         {
                             MercaderiaId = 17,
-                            Imagen = "imagen_CervezaIpa",
+                            Imagen = "https://images.unsplash.com/photo-1659464560849-78cbaa3f206e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=685&q=80",
                             Ingredientes = "Malta base,Malta especial ,Lúpulo,Agua,Levadura",
                             Nombre = "Cerveza IPA",
                             Precio = 900,
@@ -316,7 +316,7 @@ namespace Infraestructure.Migrations
                         new
                         {
                             MercaderiaId = 18,
-                            Imagen = "imagen_CervezaHoney",
+                            Imagen = "https://imag.bonviveur.com/diferentes-vasos-de-cerveza-en-la-barra-de-un-bar.jpg",
                             Ingredientes = "Malta base,Malta especial ,Lúpulo,Agua,Levadura",
                             Nombre = "Cerveza Honey",
                             Precio = 900,
@@ -326,7 +326,7 @@ namespace Infraestructure.Migrations
                         new
                         {
                             MercaderiaId = 19,
-                            Imagen = "imagen_Flan",
+                            Imagen = "https://images.unsplash.com/photo-1684456156705-5014341fc700?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
                             Ingredientes = "Huevos,Leche,Azúcar,Esencia de vainilla o ralladura de limón,Caramelo",
                             Nombre = "Flan C/Dulce o Crema",
                             Precio = 1200,
@@ -336,7 +336,7 @@ namespace Infraestructure.Migrations
                         new
                         {
                             MercaderiaId = 20,
-                            Imagen = "imagen_Helado",
+                            Imagen = "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
                             Ingredientes = "Helado sabor a eleccion(3 bochas)",
                             Nombre = "Helado",
                             Precio = 1500,
