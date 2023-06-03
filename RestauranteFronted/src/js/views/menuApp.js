@@ -1,6 +1,8 @@
 import Menu from '../components/menu/menu.js'
 import Api from '../services/getMercaderia.js'
 import ApiFiltered from '../services/getMercaderiaFiltered.js'
+import {setFormaEntrega,saveRequestComandaToLocalStorage} from '../components/menu/requestComanda.js'
+
 
 
 document.addEventListener('DOMContentLoaded', ()=> iniciarApp());
@@ -29,7 +31,7 @@ async function mostrarMercaderias(){
         console.log(error);
     }
 } 
-let formaEntregaSeleccionada= null;
+let formaEntregaSeleccionada= document.querySelector('.seleccionado');
 const onClickFormaEntrega = (e) => {
     let formaEntrega;
     if(e.target.tagName=== 'P' ||e.target.tagName=== 'IMG' ) {
@@ -47,6 +49,11 @@ const onClickFormaEntrega = (e) => {
   }
   formaEntrega.classList.add('seleccionado');
   formaEntregaSeleccionada = formaEntrega;
+
+  setFormaEntrega(parseInt(formaEntregaSeleccionada.dataset.idFormaEntrega));
+  saveRequestComandaToLocalStorage(); // Guardar el estado actualizado en localStorage
+
+  
 }
 function onListFormaEntregaClick(formasEntrega) {
     formasEntrega.forEach(formaEntrega => {

@@ -80,13 +80,8 @@ namespace Application.Services
                 ComandasMercaderia = comandasMercaderia
 
             };
-            _command.InsertComanda(comanda);
-            foreach (var item in comandasMercaderia)
-            {
-                item.ComandaMercaderiaId = 0;
-                _command2.InsertComandaMercaderia(item);
-            }
-
+          _command.InsertComanda(comanda);
+          
 
             return new ComandaResponse
             {

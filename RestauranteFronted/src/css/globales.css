@@ -12,6 +12,11 @@ body{
     line-height: 2;
     background-color: var(--negro);
 }
+
+body.fijar-body{
+        overflow: hidden;
+        background-color: black;
+}
 img{
     width: 100%;
 }
