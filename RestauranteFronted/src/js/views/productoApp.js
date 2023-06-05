@@ -1,18 +1,21 @@
-import Producto from '../components/menu/producto/producto.js'
-
+import Producto from '../components/producto.js'
 import GetMercarderiaById from '../services/getMercaderiaById.js';
+import { setMercaderias,getMercaderias,resetRequestComanda,getFormaEntrega, loadRequestComandaFromLocalStorage ,saveRequestComandaToLocalStorage} from '../components/requestComanda.js';
+
 
 
 document.addEventListener('DOMContentLoaded', ()=> iniciarApp());
 
 function iniciarApp(){
+  loadRequestComandaFromLocalStorage(); 
   mostrarProducto();
   numerosCarrito();
+  agregarCarrito();
 
 }
+const urlParams = new URLSearchParams(window.location.search);
 
 async function mostrarProducto(){
-  const urlParams = new URLSearchParams(window.location.search);
   let data = await GetMercarderiaById.GetById(urlParams.get('id'));
   document.querySelector(".relative").innerHTML+=Producto(data);
   agrandarImagen();
@@ -71,7 +74,6 @@ function numerosCarrito(){
 const cantidadValorElement = document.getElementById('cantidad-valor');
 const cantidadMayorElement = document.getElementById('cantidad-mayor');
 
-// Agrega el evento click para decrementar la cantidad
 cantidadMenorElement.addEventListener('click', () => {
   let cantidad = parseInt(cantidadValorElement.textContent);
   if (cantidad > 1) {
@@ -80,10 +82,30 @@ cantidadMenorElement.addEventListener('click', () => {
   }
 });
 
-// Agrega el evento click para incrementar la cantidad
 cantidadMayorElement.addEventListener('click', () => {
   let cantidad = parseInt(cantidadValorElement.textContent);
   cantidad++;
   cantidadValorElement.textContent = cantidad;
 });
+}
+
+function agregarCarrito(){
+ const boton= document.querySelector('.agregar-carrito');
+boton.addEventListener('click',()=> agregarCarritoAction()) 
+}
+
+const agregarCarritoAction = ()=>{
+
+  let cantidad=parseInt(document.getElementById('cantidad-valor').textContent);
+  let id= urlParams.get('id');
+
+let mercaderias= [];
+for (let i = 0; i < cantidad; i++) {
+ mercaderias.push(parseInt(id));
+}
+setMercaderias(mercaderias);
+saveRequestComandaToLocalStorage();
+
+console.log(getMercaderias());
+
 }

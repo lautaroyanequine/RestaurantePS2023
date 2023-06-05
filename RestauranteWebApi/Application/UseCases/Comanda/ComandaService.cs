@@ -39,6 +39,7 @@ namespace Application.Services
             var formaEntrega = _queryFormaEntrega.GetFormaEntrega(request.FormaEntrega);
             var id = new Guid();
             double total = 0;
+            if(request.Mercaderias.Count==0)throw new ElementoInexistenteException();
             foreach (var IdMercaderia in request.Mercaderias)
             {
                 var aux = _queryMercaderia.GetMercaderia(IdMercaderia);

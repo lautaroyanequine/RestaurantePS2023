@@ -63,6 +63,10 @@ namespace RestauranteWebApi.Controllers
             {
                 return BadRequest(new { message = "Ingreso un ID de forma de entrega invalido" });
             }
+            catch(ElementoInexistenteException ei)
+            {
+                return BadRequest(new { message = "No ingreso ninguna mercaderia" });
+            }
 
 
 

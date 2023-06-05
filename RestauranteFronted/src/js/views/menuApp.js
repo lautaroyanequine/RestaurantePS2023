@@ -1,7 +1,7 @@
-import Menu from '../components/menu/menu.js'
+import Menu from '../components/menu.js'
 import Api from '../services/getMercaderia.js'
 import ApiFiltered from '../services/getMercaderiaFiltered.js'
-import {setFormaEntrega,saveRequestComandaToLocalStorage} from '../components/menu/requestComanda.js'
+import {setFormaEntrega,saveRequestComandaToLocalStorage} from '../components/requestComanda.js'
 
 
 
@@ -51,7 +51,7 @@ const onClickFormaEntrega = (e) => {
   formaEntregaSeleccionada = formaEntrega;
 
   setFormaEntrega(parseInt(formaEntregaSeleccionada.dataset.idFormaEntrega));
-  saveRequestComandaToLocalStorage(); // Guardar el estado actualizado en localStorage
+  saveRequestComandaToLocalStorage(); 
 
   
 }
