@@ -1,18 +1,20 @@
 import Menu from '../components/menu.js'
 import Api from '../services/getMercaderia.js'
 import ApiFiltered from '../services/getMercaderiaFiltered.js'
-import {setFormaEntrega,saveRequestComandaToLocalStorage} from '../components/requestComanda.js'
+import {  loadRequestComandaFromLocalStorage,setFormaEntrega,saveRequestComandaToLocalStorage, getFormaEntrega} from '../components/requestComanda.js'
 
 
 
 document.addEventListener('DOMContentLoaded', ()=> iniciarApp());
 
-function iniciarApp(){
-    onListFormaEntregaClick(document.querySelectorAll(".forma-entrega"));
-    mostrarMercaderias();
-    ocultarMercaderias(document.querySelectorAll(".logo-desplegable"));
-    busquedaFiltrada();
-
+function iniciarApp() {
+  loadRequestComandaFromLocalStorage(); 
+  let formaEntregaSeleccionada = document.querySelector(`[data-id-forma-entrega="${getFormaEntrega()}"]`);
+  formaEntregaSeleccionada.classList.add('seleccionado');
+  onListFormaEntregaClick(document.querySelectorAll(".forma-entrega"), formaEntregaSeleccionada);
+  mostrarMercaderias();
+  ocultarMercaderias(document.querySelectorAll(".logo-desplegable"));
+  busquedaFiltrada();
 }
 
 async function mostrarMercaderias(){
@@ -31,8 +33,8 @@ async function mostrarMercaderias(){
         console.log(error);
     }
 } 
-let formaEntregaSeleccionada= document.querySelector('.seleccionado');
 const onClickFormaEntrega = (e) => {
+
     let formaEntrega;
     if(e.target.tagName=== 'P' ||e.target.tagName=== 'IMG' ) {
         
@@ -40,27 +42,25 @@ const onClickFormaEntrega = (e) => {
     }else{
         formaEntrega = e.target
     }
+    let formaEntregaSeleccionada = document.querySelector('.forma-entrega.seleccionado');
 
-  if (formaEntregaSeleccionada !== null) {
-    if (formaEntrega === formaEntregaSeleccionada) {
-      return;
+
+    if (formaEntrega !== formaEntregaSeleccionada) {
+      formaEntregaSeleccionada.classList.remove('seleccionado');
+      formaEntregaSeleccionada = formaEntrega;
+      formaEntregaSeleccionada.classList.add('seleccionado');
+      setFormaEntrega(parseInt(formaEntregaSeleccionada.dataset.idFormaEntrega));
+      saveRequestComandaToLocalStorage();
     }
-    formaEntregaSeleccionada.classList.remove('seleccionado');
+
+
   }
-  formaEntrega.classList.add('seleccionado');
-  formaEntregaSeleccionada = formaEntrega;
-
-  setFormaEntrega(parseInt(formaEntregaSeleccionada.dataset.idFormaEntrega));
-  saveRequestComandaToLocalStorage(); 
-
   
-}
-function onListFormaEntregaClick(formasEntrega) {
+  function onListFormaEntregaClick(formasEntrega) {
     formasEntrega.forEach(formaEntrega => {
-        formaEntrega.addEventListener('click', onClickFormaEntrega);
+      formaEntrega.addEventListener('click', onClickFormaEntrega);
     });
-}
-
+  }
 function ocultarMercaderias(tiposMercaderia){
     tiposMercaderia.forEach(tipoMercaderia =>{
         tipoMercaderia.addEventListener('click',()=>ocultarMercaderiasAction(tipoMercaderia));

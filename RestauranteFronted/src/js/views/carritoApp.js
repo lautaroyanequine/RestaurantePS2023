@@ -1,7 +1,14 @@
 import PostComanda from '../services/postComanda.js'
 import GetMercarderiaById from '../services/getMercaderiaById.js';
 import CarritoMercaderia from '../components/carrito.js';
+import Resumen from '../components/resumen.js';
+import SinProducto from '../components/sinProducto.js';
+
+import CongelarPantalla from '../components/congelarPantalla.js';
+
+
 import { setMercaderias,setMercaderiasNueva,getMercaderias,getRequestComanda,resetRequestComanda,getFormaEntrega, loadRequestComandaFromLocalStorage ,saveRequestComandaToLocalStorage} from '../components/requestComanda.js';
+import MostrarAlerta from '../components/mostrarAlerta.js';
 
 
 
@@ -21,16 +28,30 @@ function agregarEventoConfirmar() {
   botonConfirmar.addEventListener('click',postComanda);
 }
 function postComanda(e){
-  e.preventDefault();
-  console.log(getFormaEntrega());
-  console.log(getRequestComanda());
 
+  try
+  {e.preventDefault();
+    if(getMercaderias().length < 1 )
+    {
+      throw new Error("Tiene que agregar la mercaderia que desee")
+    }
   PostComanda.Post(getRequestComanda());
+  resetRequestComanda(); 
+  saveRequestComandaToLocalStorage(); 
+  let barra= document.querySelector('.barra-enviar');
+  barra.classList.add('d-none');
+  MostrarAlerta("SU PEDIDO FUE REALIZADO CORRECTAMENTE","enviar");
+  CongelarPantalla(2000);
+  setTimeout(() => {
+    window.location.href = "menu.html";
+  }, 2000);
 
-  resetRequestComanda(); // Restablecer requestComanda a los valores predeterminados
-  saveRequestComandaToLocalStorage(); // Guardar el estado actualizado en localStorage
 
+  }
+  catch(error) {
+  console.log(error);
 
+  }
 }
 
 async function mostrarPedido() {
@@ -48,6 +69,9 @@ async function mostrarPedido() {
   actualizarPedido();
   eliminarPedido();
   agregarMercaderia();
+  mostrarResumen();
+  sinProductos();
+
 
 }
 
@@ -57,7 +81,6 @@ function actualizarPedidoBotones(mercaderiaUnica,bool){
     let precioNuevo=0;
     if(bool){
       precioNuevo=parseInt(precioAModificar.dataset.idPrecioValor)+parseInt(precioAModificar.textContent);
-     console.log(cantidadAModificar.textContent);
       cantidadAModificar.textContent=parseInt(cantidadAModificar.textContent)+1;
     }
     else{
@@ -86,18 +109,17 @@ function actualizarPedido(){
   }
 }
 
-function obtenerTotal(){
-  let data = getMercaderias();
-  let mercaderiasMostradas = [];
-  let total=0;
-  for (let i = 0; i < data.length; i++) {
-    const mercaderia = data[i];
-    if (yaFueSeleccionado(mercaderiasMostradas, mercaderia))continue;
-    let precioAModificar=document.querySelector(`[data-id-precio="${mercaderia}"]`);
-    total += parseInt(precioAModificar.textContent);
-    mercaderiasMostradas.push(mercaderia);
-  }
-  return total;
+function mostrarResumen(bool){
+  let resumen = document.querySelector('.resumen');
+
+
+  let data = Resumen(getMercaderias().length,obtenerFormaEntrega(),obtenerTotal());
+ if(bool){
+  resumen.innerHTML+= data;
+ }
+ else{
+  resumen.innerHTML=data;
+ }
 }
 
 
@@ -116,6 +138,8 @@ const eliminarPedidoAction = (boton)=>{
   saveRequestComandaToLocalStorage();
   let li = document.querySelector(`[data-id-mercaderia-carrito$="${boton.dataset.idTacho}"]`);
   li.innerHTML="";
+  mostrarResumen(false);
+  sinProductos();
 }
 
 function agregarMercaderia(){
@@ -137,10 +161,14 @@ const agregaMercaderiaAction=(boton) =>{
       cantidad--;
       cantidadValorElement.textContent = cantidad;
       let mercaderia =cantidadMenorElement.dataset.idDecrementar;
+      console.log(getMercaderias());
+
       let nuevaData = eliminarNumero(data,parseInt(mercaderia));
       setMercaderiasNueva(nuevaData);
+      console.log(getMercaderias());
       saveRequestComandaToLocalStorage();
       actualizarPedidoBotones(mercaderia,false);
+      mostrarResumen(false);
 
 
     }
@@ -160,6 +188,8 @@ const agregaMercaderiaAction=(boton) =>{
     console.log(nuevaData);
     saveRequestComandaToLocalStorage();
     actualizarPedidoBotones(mercaderia,true);
+    mostrarResumen(false);
+
   });
 
 }
@@ -188,3 +218,44 @@ const eliminarNumero = (array, numero) => {
   }
   return array;
 };
+function obtenerTotal(){
+  let data = getMercaderias();
+  let mercaderiasMostradas = [];
+  let total=0;
+  for (let i = 0; i < data.length; i++) {
+    const mercaderia = data[i];
+    if (yaFueSeleccionado(mercaderiasMostradas, mercaderia))continue;
+    let precioAModificar=document.querySelector(`[data-id-precio="${mercaderia}"]`);
+    total += parseInt(precioAModificar.textContent);
+    mercaderiasMostradas.push(mercaderia);
+  }
+  return total;
+}
+function obtenerFormaEntrega(){
+  let data = getFormaEntrega();
+  let formaEntrega="";
+  switch(data){
+    case 1 :
+      formaEntrega="Salon";
+      break;
+    case 2:
+      formaEntrega= "Delivery";
+      break;
+    case 3 :
+      formaEntrega = "Pedidos Ya";
+      break;
+  }
+  return formaEntrega;
+
+}
+
+function sinProductos(){
+  let mercaderia =getMercaderias();
+  let resumen = document.querySelector('.resumen');
+  let barra= document.querySelector('.barra-enviar');
+  if(mercaderia.length<1){
+    resumen.innerHTML=SinProducto();
+    barra.classList.add('d-none');
+  }
+}
+

@@ -35,6 +35,10 @@
 .centrar-texto{
     text-align: center;
 }
+.m-0auto{
+    margin: 0 auto;
+   
+}
 
 .d-none{
     display: none;

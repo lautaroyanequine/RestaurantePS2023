@@ -117,6 +117,9 @@ namespace Application.Services
             {
                 if (DateTime.TryParseExact(fecha, "dd/mm/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaDateTime)) fechaFormatted = fechaDateTime.ToString("yyyy-mm-dd");
                 else if (DateTime.TryParseExact(fecha, "dd-mm-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaDateTime)) fechaFormatted = fechaDateTime.ToString("yyyy-mm-dd");
+                else if (DateTime.TryParseExact(fecha, "d-m-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaDateTime)) fechaFormatted = fechaDateTime.ToString("yyyy-mm-dd");
+                else if (DateTime.TryParseExact(fecha, "d-mm-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaDateTime)) fechaFormatted = fechaDateTime.ToString("yyyy-mm-dd");
+                else if (DateTime.TryParseExact(fecha, "dd-m-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaDateTime)) fechaFormatted = fechaDateTime.ToString("yyyy-mm-dd");
                 else if (DateTime.TryParseExact(fecha, "dd/mm/yy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaDateTime)) fechaFormatted = fechaDateTime.ToString("yyyy-mm-dd");
                 else if (DateTime.TryParseExact(fecha, "dd-mm-yy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaDateTime)) fechaFormatted = fechaDateTime.ToString("yyyy-mm-dd");
                 else if (DateTime.TryParseExact(fecha, "yyyy-mm-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaDateTime)) fechaFormatted = fechaDateTime.ToString("yyyy-mm-dd");

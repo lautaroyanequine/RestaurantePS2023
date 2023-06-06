@@ -1,6 +1,10 @@
 import Producto from '../components/producto.js'
 import GetMercarderiaById from '../services/getMercaderiaById.js';
 import { setMercaderias,getMercaderias,resetRequestComanda,getFormaEntrega, loadRequestComandaFromLocalStorage ,saveRequestComandaToLocalStorage} from '../components/requestComanda.js';
+import MostrarAlerta from '../components/mostrarAlerta.js'
+import CongelarPantalla from '../components/congelarPantalla.js';
+
+
 
 
 
@@ -105,7 +109,11 @@ for (let i = 0; i < cantidad; i++) {
 }
 setMercaderias(mercaderias);
 saveRequestComandaToLocalStorage();
+MostrarAlerta("SE AGREGO CORRECTAMENTE AL CARRITO","alerta");
+CongelarPantalla(2000);
 
-console.log(getMercaderias());
+
+
 
 }
+
