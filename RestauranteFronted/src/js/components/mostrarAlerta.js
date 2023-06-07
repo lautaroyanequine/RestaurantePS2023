@@ -5,13 +5,14 @@ export default function  MostrarAlerta(mensaje,clase) {
     if(alertaPrevia) {
         return;
     } 
+
   let div = document.querySelector('.informar');
   let data = Alerta(mensaje,clase);
   div.innerHTML+=data;
   
     setTimeout(() => {
         div.innerHTML="";
-    }, 3000);
+    }, 1500);
   }
 
 

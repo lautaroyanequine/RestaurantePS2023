@@ -14,18 +14,21 @@
 
     <header class="site-header ">
         <div class="contenedor barra">
-            <a href=""> <img class="logo" src="src/img/logo1.png" alt="Laff Restaurante"></a>
+            <a href="index.html"> <img class="logo" src="src/img/logo1.png" alt="Laff Restaurante"></a>
             <nav class="navegacion">   
-                <a href="menu.html">Menú</a>
-                <a href="comandas.html">Comandas</a>
-                <a href="">Nosotros</a>
+                <a href="/menu.html">Menú</a>
+                <a href="/comandas.html">Comandas</a>
             </nav> 
         </div>
+      
     </header>
 
     <main class="menu ">
-        <div class="contenedor2">
-            <img class="header-menu" src="src/img/header_Menu.png" alt="Header Menu">
+        <div class="contenedor2 relative">
+            <img class="header-menu relative" src="src/img/header_Menu.png" alt="Header Menu">
+            <div class="logo-carrito">
+                <img src="/src/img/icono_carrito.svg" alt="Logo">
+            </div>          
         </div>
         <div class="barra-formaEntrega contenedor3">
             <div class="forma-entrega fm-boton"  data-id-forma-entrega ="1">
@@ -195,12 +198,40 @@
     </main>
   
    
-    <footer class="site-footer">
-        <div class="contenedor barra">
-            <p>Todos los Derechos Reservados &copy </p>
-            <a href=""> <img class="logo" src="src/img/logo1.png" alt="Laff Restaurante"></a>
+    <footer class="site-footer border">
+        <div class="contenedor barra-footer">
+            <div class="footer-varios">
+                <div class="contacto">
+                    <img src="/src/img/mail-outline.svg" alt="icono Mail">
+                    <p>Contacto:<span>restaurantelaff@gmail.com</span></p>
+                </div>
+                <div class="ubicacion">
+                    <img src="src/img/location-16.svg" alt="icono Ubicacion">
+                    <p>Ubicacion:<span>Calle 843 2414, San Francisco Solano, Buenos Aires </span></p>
+                </div>
+                <div class="horario">
+                    <img src="src/img/clock-bold.svg" alt="icono Horario">
+                    <p>Horario:<span>Fines de semana 12 a 16 | 20 a 02 hs.
+
+                       <br> Lu-Jue 12 a 16 | 20 a 00 hs.</span></p>
+                </div>
+            </div>
+            <div class="redes">
+                <h4>Nuestras redes</h4>
+                <div class="logos-redes">
+                   <a href="https://www.facebook.com"> <img class="logo-redes" src="/src/img/baseline-facebook.svg" alt="Logo Facebook"></a>
+                   <a href="https://www.instagram.com"> <img  class="logo-redes" src="/src/img/instagram.svg" alt="Logo Instagram"></a>
+                   <a href="https://web.whatsapp.com"> <img class="logo-redes" src="/src/img/baseline-whatsapp.svg" alt="Logo WhatsApp"></a>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <img class="imagen-footer" src="/src/img/logo1.png" alt="footer_logo">
+            <p >Copyright © 2023 Restaurante Laff | Todos los derechos reservados | Desarrollado por <a href="mailto:lautaroyanequine@gmail.com" target="_blank" rel="noopener">Lautaro Yanequine</a></p>			
         </div>
     </footer>
+
 
     <script src="src/js/views/menuApp.js" type="module"></script>
 

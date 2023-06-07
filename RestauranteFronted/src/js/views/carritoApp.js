@@ -3,9 +3,7 @@ import GetMercarderiaById from '../services/getMercaderiaById.js';
 import CarritoMercaderia from '../components/carrito.js';
 import Resumen from '../components/resumen.js';
 import SinProducto from '../components/sinProducto.js';
-
 import CongelarPantalla from '../components/congelarPantalla.js';
-
 
 import { setMercaderias,setMercaderiasNueva,getMercaderias,getRequestComanda,resetRequestComanda,getFormaEntrega, loadRequestComandaFromLocalStorage ,saveRequestComandaToLocalStorage} from '../components/requestComanda.js';
 import MostrarAlerta from '../components/mostrarAlerta.js';
@@ -19,6 +17,7 @@ function iniciarApp(){
   loadRequestComandaFromLocalStorage(); 
   mostrarPedido();
   agregarEventoConfirmar();
+  borrarComanda();
 
 }
 
@@ -41,10 +40,11 @@ function postComanda(e){
   let barra= document.querySelector('.barra-enviar');
   barra.classList.add('d-none');
   MostrarAlerta("SU PEDIDO FUE REALIZADO CORRECTAMENTE","enviar");
-  CongelarPantalla(2000);
+  console.log(3)
+  CongelarPantalla(1500);
   setTimeout(() => {
     window.location.href = "menu.html";
-  }, 2000);
+  }, 1500);
 
 
   }
@@ -140,6 +140,12 @@ const eliminarPedidoAction = (boton)=>{
   li.innerHTML="";
   mostrarResumen(false);
   sinProductos();
+}
+function eliminarPedidoTodos(){
+  let botonTacho= document.querySelectorAll('.tacho');
+  if(botonTacho.length===0) return
+  botonTacho.forEach( boton=> eliminarPedidoAction(boton));
+
 }
 
 function agregarMercaderia(){
@@ -259,3 +265,11 @@ function sinProductos(){
   }
 }
 
+function borrarComanda(){
+  let boton = document.querySelector('.icono-borrar');
+  boton.addEventListener('click',() => borrarComandaAction())
+}
+
+const borrarComandaAction= () =>{
+eliminarPedidoTodos()
+}

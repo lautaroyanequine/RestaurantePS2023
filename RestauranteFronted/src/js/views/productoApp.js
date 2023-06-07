@@ -110,7 +110,7 @@ for (let i = 0; i < cantidad; i++) {
 setMercaderias(mercaderias);
 saveRequestComandaToLocalStorage();
 MostrarAlerta("SE AGREGO CORRECTAMENTE AL CARRITO","alerta");
-CongelarPantalla(2000);
+CongelarPantalla(1500);
 
 
 

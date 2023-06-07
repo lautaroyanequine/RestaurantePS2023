@@ -106,7 +106,7 @@ namespace Application.Services
             _command.RemoveComanda(comandaId);
         }
 
-      
+
 
         public List<ComandaResponse> GetAll(string? fecha = null)
         {
@@ -134,42 +134,39 @@ namespace Application.Services
                 else throw new DatoInvalidoException();
             }
 
-
             var comandas = _query.GetList(fechaFormatted);
             var comandasResponses = new List<ComandaResponse>();
-            var mercaderiaComandasResponses = new List<MercaderiaComandaResponse>();
             foreach (var comanda in comandas)
             {
+                var mercaderiaComandasResponses = new List<MercaderiaComandaResponse>();
+
                 foreach (var comandaMercaderia in comanda.ComandasMercaderia)
                 {
                     mercaderiaComandasResponses.Add(new MercaderiaComandaResponse
                     {
-                        Id = comandaMercaderia.ComandaMercaderiaId,
+                        Id = comandaMercaderia.MercaderiaId,
                         Nombre = _queryMercaderia.GetMercaderia(comandaMercaderia.MercaderiaId).Nombre,
                         Precio = _queryMercaderia.GetMercaderia(comandaMercaderia.MercaderiaId).Precio
                     });
                 }
-
-
-            }
-
-            foreach (var comanda in comandas)
-            {
-                comandasResponses.Add(new ComandaResponse
                 {
-                    Id = comanda.ComandaId,
-                    Mercaderias = mercaderiaComandasResponses,
-                    FormaEntrega = new FormaEntregaResponse
+                    comandasResponses.Add(new ComandaResponse
                     {
-                        Id = _queryFormaEntrega.GetFormaEntrega(comanda.FormaEntregaId).FormaEntregaId,
-                        Descripcion = _queryFormaEntrega.GetFormaEntrega(comanda.FormaEntregaId).Descripcion
-                    },
-                    Total = comanda.PrecioTotal,
-                    Fecha = comanda.Fecha
-                });
-            }
+                        Id = comanda.ComandaId,
+                        Mercaderias = mercaderiaComandasResponses,
+                        FormaEntrega = new FormaEntregaResponse
+                        {
+                            Id = _queryFormaEntrega.GetFormaEntrega(comanda.FormaEntregaId).FormaEntregaId,
+                            Descripcion = _queryFormaEntrega.GetFormaEntrega(comanda.FormaEntregaId).Descripcion
+                        },
+                        Total = comanda.PrecioTotal,
+                        Fecha = comanda.Fecha
+                    });
+                }
 
+            }
             return comandasResponses;
+
         }
 
         public ComandaGetResponse GetComandaById(Guid comandaId)

@@ -14,47 +14,86 @@
 
     <header class="site-header ">
         <div class="contenedor barra">
-            <a href=""> <img class="logo" src="src/img/logo1.png" alt="Laff Restaurante"></a>
+            <a href="index.html"> <img class="logo" src="src/img/logo1.png" alt="Laff Restaurante"></a>
             <nav class="navegacion">   
                 <a href="/menu.html">Menú</a>
                 <a href="/comandas.html">Comandas</a>
-                <a href="">Nosotros</a>
             </nav> 
         </div>
       
     </header>
 
     <section class="presentation">
-        <h1 class="contenedor"> Disfrutà de una auténtica experiencia de comida  en <br>Restaurante LAFF</br></h1>
+        <h1 class="contenedor titulo">Disfruta de una auténtica experiencia culinaria en<br>Restaurante LAFF</br></h1>
     </section>
 
     <main class="seccion galeria-menu ">
-        <h2>Menú</h2>
+        <h2> Nuestro Menú</h2>
         <div class="contenedor galeria ">
-                <img class="foto-galeria" src="src/img/Rectangle 4.png" alt="">
-                <img class="foto-galeria" src="src/img/Rectangle 5.png" alt="">
-                <img class="foto-galeria"  src="src/img/Rectangle 6.png" alt="">
-                <img class="foto-galeria"  src="src/img/Rectangle 7.png" alt="">
-                <img class="foto-galeria"  src="src/img/Rectangle 8.png" alt="">
-                <img class="foto-galeria"  src="src/img/Rectangle 9.png" alt="">
-                <img class="foto-galeria"  src="src/img/Rectangle 7.png" alt="">
-                <img class="foto-galeria"  src="src/img/Rectangle 8.png" alt="">
-                <img class="foto-galeria"  src="src/img/Rectangle 9.png" alt="">
+                
         </div>
-        <a class="boton boton-rojo" href="/menu.html">Ver Menú</a>
+        <a class="boton boton-rojo v-menu" href="../menu.html">Ver Menú</a>
     </main>
     
     <section class="pedidos">
         <h2 > Pedidos</h2>
         <p class=" contenedor"><br>Si estás buscando revisar los pedidos que se han hecho en nuestro restaurante en el dìa de hoy, has llegado al lugar indicado.<br>Nuestra plataforma de pedidos en línea te permite ver todos los pedidos que se han hecho.Tendrás acceso a toda la información que necesitas.</p>
-        <a class="boton boton-negro" href="">Ver pedidos</a>
+        <a class="boton boton-negro v-pedidos" href="comandas.html">Ver pedidos</a>
+    </section>
+
+    <section class="nosotros">
+        <div class="contenedor">
+            <h2>Sobre Nosotros</h2>
+            <div class="nosotros-flex">
+                <div class="texto-nosotros">
+                    <p>En el Restaurante Laff, nos apasiona ofrecerte una auténtica experiencia culinaria. Nuestro compromiso es brindarte platos exquisitos, preparados con ingredientes frescos y de la más alta calidad.</p>
+    <p>Desde nuestra humilde apertura en 2022, nos hemos dedicado a deleitar a nuestros comensales con la mejor comida y un servicio excepcional. Nos enorgullece haber ganado numerosos premios y reconocimientos en la industria de la gastronomía.</p>
+    <p>En el Restaurante Laff, valoramos tu satisfacción y comodidad. Nuestro acogedor ambiente y nuestro servicio atento crean el entorno perfecto para que disfrutes de tu comida en compañía de familiares y amigos.</p>
+                </div>
+                <div class="foto-nosotros">
+                    <img class="imagen" src="/src/img/petr-sevcovic-e5Q5vWO55uU-unsplash.jpg" alt="Imagen Nosotros">
+                </div>
+            </div>
+    
+        </div>
     </section>
    
-    <footer class="site-footer">
-        <div class="contenedor barra">
-            <p>Todos los Derechos Reservados &copy </p>
-            <a href=""> <img class="logo" src="src/img/logo1.png" alt="Laff Restaurante"></a>
+    <footer class="site-footer c-border">
+        <div class="contenedor barra-footer">
+            <div class="footer-varios">
+                <div class="contacto">
+                    <img src="/src/img/mail-outline.svg" alt="icono Mail">
+                    <p>Contacto:<span>restaurantelaff@gmail.com</span></p>
+                </div>
+                <div class="ubicacion">
+                    <img src="src/img/location-16.svg" alt="icono Ubicacion">
+                    <p>Ubicacion:<span>Calle 843 2414, San Francisco Solano, Buenos Aires </span></p>
+                </div>
+                <div class="horario">
+                    <img src="src/img/clock-bold.svg" alt="icono Horario">
+                    <p>Horario:<span>Fines de semana 12 a 16 | 20 a 02 hs.
+
+                       <br> Lu-Jue 12 a 16 | 20 a 00 hs.</span></p>
+                </div>
+            </div>
+            <div class="redes">
+                <h4>Nuestras redes</h4>
+                <div class="logos-redes">
+                   <a href="https://www.facebook.com"> <img class="logo-redes" src="/src/img/baseline-facebook.svg" alt="Logo Facebook"></a>
+                   <a href="https://www.instagram.com"> <img  class="logo-redes" src="/src/img/instagram.svg" alt="Logo Instagram"></a>
+                   <a href="https://web.whatsapp.com"> <img class="logo-redes" src="/src/img/baseline-whatsapp.svg" alt="Logo WhatsApp"></a>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <img class="imagen-footer" src="/src/img/logo1.png" alt="footer_logo">
+            <p >Copyright © 2023 Restaurante Laff | Todos los derechos reservados | Desarrollado por <a href="mailto:lautaroyanequine@gmail.com" target="_blank" rel="noopener">Lautaro Yanequine</a></p>			
         </div>
     </footer>
+
+  
+    <script src="src/js/views/indexApp.js" type="module"></script>
+
 </body>
 </html>

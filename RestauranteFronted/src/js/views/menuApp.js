@@ -15,6 +15,7 @@ function iniciarApp() {
   mostrarMercaderias();
   ocultarMercaderias(document.querySelectorAll(".logo-desplegable"));
   busquedaFiltrada();
+  clickCarrito();
 }
 
 async function mostrarMercaderias(){
@@ -33,6 +34,15 @@ async function mostrarMercaderias(){
         console.log(error);
     }
 } 
+
+function clickCarrito(){
+  let logo = document.querySelector('.logo-carrito');
+  logo.addEventListener('click',() => clickCarritoAction())
+}
+const clickCarritoAction= () =>{
+  window.location.href = "carrito.html";
+
+}
 const onClickFormaEntrega = (e) => {
 
     let formaEntrega;
