@@ -1,11 +1,8 @@
 import Producto from '../components/producto.js'
 import GetMercarderiaById from '../services/getMercaderiaById.js';
-import { setMercaderias,getMercaderias,resetRequestComanda,getFormaEntrega, loadRequestComandaFromLocalStorage ,saveRequestComandaToLocalStorage} from '../components/requestComanda.js';
+import { setMercaderias,loadRequestComandaFromLocalStorage ,saveRequestComandaToLocalStorage} from '../components/requestComanda.js';
 import MostrarAlerta from '../components/mostrarAlerta.js'
 import CongelarPantalla from '../components/congelarPantalla.js';
-
-
-
 
 
 document.addEventListener('DOMContentLoaded', ()=> iniciarApp());
@@ -21,6 +18,7 @@ const urlParams = new URLSearchParams(window.location.search);
 
 async function mostrarProducto(){
   let data = await GetMercarderiaById.GetById(urlParams.get('id'));
+  console.log(data);
   document.querySelector(".relative").innerHTML+=Producto(data);
   agrandarImagen();
 
@@ -94,12 +92,11 @@ cantidadMayorElement.addEventListener('click', () => {
 }
 
 function agregarCarrito(){
- const boton= document.querySelector('.agregar-carrito');
+const boton= document.querySelector('.agregar-carrito');
 boton.addEventListener('click',()=> agregarCarritoAction()) 
 }
 
 const agregarCarritoAction = ()=>{
-
   let cantidad=parseInt(document.getElementById('cantidad-valor').textContent);
   let id= urlParams.get('id');
 
@@ -111,9 +108,5 @@ setMercaderias(mercaderias);
 saveRequestComandaToLocalStorage();
 MostrarAlerta("SE AGREGO CORRECTAMENTE AL CARRITO","alerta");
 CongelarPantalla(1500);
-
-
-
-
 }
 

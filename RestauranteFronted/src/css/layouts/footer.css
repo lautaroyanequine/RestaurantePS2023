@@ -1,0 +1,86 @@
+
+/* FOOTER*/
+.site-footer{
+    background-color: black;
+    height:20rem ;
+    padding-top: 2rem;
+    margin-top: 4rem;
+}
+.site-footer.c-border{
+  
+  border-top: 2px solid var(--grisClaro);
+}
+.site-footer .barra{
+padding: 0;
+align-items: end;
+}
+
+.site-footer p{
+color: white;
+}
+.footer{
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+color: var(--blanco);
+}
+.footer a{
+color: var(--rojoPrimario);
+}
+
+.imagen-footer{
+max-height: 15rem;
+width: 12rem;
+}
+.footer-varios {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+}
+
+.contacto, .ubicacion, .horario {
+display: flex;
+align-items: center;
+margin-bottom: 1rem; 
+}
+
+.contacto img, .ubicacion img, .horario img {
+filter: invert(48%) sepia(0%) saturate(6467%) hue-rotate(32deg) brightness(113%) contrast(84%);
+margin-right: 1rem;
+height: 2rem;
+width: 2rem;
+}
+
+.contacto p, .ubicacion p, .horario p {
+margin: 0;
+}
+
+.contacto span, .ubicacion span, .horario span {
+margin-left: .5rem;
+font-weight: bold;
+}
+.redes h4{
+color: var(--blanco);
+margin-top: 0;
+
+}
+.barra-footer{
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+}
+.logos-redes{
+display: flex;
+justify-content: space-between;
+}
+.logo-redes{
+filter: invert(60%) sepia(5%) saturate(7%) hue-rotate(30deg) brightness(91%) contrast(94%);
+transition: filter 0.3s ease-in-out;
+height: 4rem;
+}
+.logo-redes:hover{
+filter: invert(32%) sepia(34%) saturate(2988%) hue-rotate(328deg) brightness(94%) contrast(118%);
+
+}
+

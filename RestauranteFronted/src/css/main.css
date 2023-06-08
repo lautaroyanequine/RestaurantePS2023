@@ -3,6 +3,14 @@
 @import url("variables.css");
 @import url("globales.css");
 @import url("utilidades.css");
-@import url("style.css");
+@import url("botoness.css");
+@import url("/src/css/layouts/header.css");
+@import url("/src/css/layouts/footer.css");
+@import url("/src/css/layouts/indexStyle.css");
+@import url("/src/css/layouts/menuStyle.css");
+@import url("/src/css/layouts/productoStyle.css");
+@import url("/src/css/layouts/carritoStyle.css");
+@import url("/src/css/layouts/comandasStyle.css");
+@import url("/src/css/layouts/efectos.css");
 
 

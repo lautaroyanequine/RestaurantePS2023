@@ -16,10 +16,8 @@ const postComanda = async(request) =>{
             throw new Error('Error en la solicitud');
           }
         const data = await response.json();
-        console.log(data);
     }
     catch (error) {
-        // Manejar errores de la solicitud
         console.error('Error:', error);
       }
   

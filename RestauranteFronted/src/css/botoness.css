@@ -1,0 +1,21 @@
+/**BOTONES**/
+.boton{
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.8rem;
+    padding: 1rem 3rem;
+    display: inline-block;
+    text-align: center;
+    border-radius: .5rem;
+}
+.boton-rojo{
+    background-color: rgba(237,50,55,0.6)
+    
+}
+.boton-negro{
+    background-color: rgba(0,0,0,0.6);
+    border: white;
+    margin-bottom: 2rem ;
+    
+}

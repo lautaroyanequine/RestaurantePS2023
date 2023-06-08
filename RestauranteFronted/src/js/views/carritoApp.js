@@ -40,12 +40,10 @@ function postComanda(e){
   let barra= document.querySelector('.barra-enviar');
   barra.classList.add('d-none');
   MostrarAlerta("SU PEDIDO FUE REALIZADO CORRECTAMENTE","enviar");
-  console.log(3)
   CongelarPantalla(1500);
   setTimeout(() => {
     window.location.href = "menu.html";
   }, 1500);
-
 
   }
   catch(error) {
@@ -126,7 +124,6 @@ function mostrarResumen(bool){
 function eliminarPedido(){
   let botonTacho= document.querySelectorAll('.tacho');
   botonTacho.forEach(boton =>{
-    console.log(boton);
     boton.addEventListener('click',()=> eliminarPedidoAction(boton))
   })
 }
@@ -167,11 +164,9 @@ const agregaMercaderiaAction=(boton) =>{
       cantidad--;
       cantidadValorElement.textContent = cantidad;
       let mercaderia =cantidadMenorElement.dataset.idDecrementar;
-      console.log(getMercaderias());
 
       let nuevaData = eliminarNumero(data,parseInt(mercaderia));
       setMercaderiasNueva(nuevaData);
-      console.log(getMercaderias());
       saveRequestComandaToLocalStorage();
       actualizarPedidoBotones(mercaderia,false);
       mostrarResumen(false);
@@ -185,13 +180,10 @@ const agregaMercaderiaAction=(boton) =>{
     cantidad++;
     cantidadValorElement.textContent = cantidad;
     let mercaderia =cantidadMayorElement.dataset.idAumentar;
-    console.log(mercaderia);
     let mercaderiaAgregar=[];
     mercaderiaAgregar.push(parseInt(mercaderia));
-    console.log(mercaderiaAgregar);
     setMercaderias(mercaderiaAgregar);
     let nuevaData=getMercaderias();
-    console.log(nuevaData);
     saveRequestComandaToLocalStorage();
     actualizarPedidoBotones(mercaderia,true);
     mostrarResumen(false);

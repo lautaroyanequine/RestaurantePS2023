@@ -14,7 +14,7 @@ const getMercaderia = async() =>{
                 mercaderiaDetalle.push(await resultadoDetalle.json());
             }
         }
-        return mercaderiaDetalle ; // Devolver el objeto JSON con la propiedad 'mercaderiaDetalle'
+        return mercaderiaDetalle ; 
     }
 
  const Api ={

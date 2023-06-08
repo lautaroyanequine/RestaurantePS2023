@@ -16,7 +16,6 @@ function iniciarApp(){
 
 async function mostrarGaleria(){
   const galeria = document.querySelector('.galeria');
-  console.log(galeria);
   const mercaderia= await Api.Get();
   const mercaderiaFiltrada = mercaderia.filter(item => item.tipo.id >= 1 && item.tipo.id <= 6);
   const mercaderiaAleatoria = obtenerElementosAleatorios(mercaderiaFiltrada, 9);

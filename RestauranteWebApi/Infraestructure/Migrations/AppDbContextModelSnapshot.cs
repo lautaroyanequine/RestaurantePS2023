@@ -297,7 +297,7 @@ namespace Infraestructure.Migrations
                         {
                             MercaderiaId = 16,
                             Imagen = "https://images.unsplash.com/photo-1638688569176-5b6db19f9d2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-                            Ingredientes = "Agua Mineral 1lt ",
+                            Ingredientes = "Agua Mineral 500cc ",
                             Nombre = "Agua Mineral",
                             Precio = 500,
                             Preparacion = "Agua Mineral en botella",

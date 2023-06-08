@@ -115,42 +115,31 @@ async function   handleFiltrarMercaderia(order,filter,name) {
     const filtrarPor = filter.value;
     const buscarPorNombre = name.value;
     let data = await ApiFiltered.Get(filtrarPor,buscarPorNombre,ordenarPor);
-
     const contenedores = document.querySelectorAll('.tipo-mercaderia ul');
-
     contenedores.forEach(contenedor => {
       const hijos = contenedor.querySelectorAll('li');
       hijos.forEach(hijo => {
         hijo.classList.add('d-none');
       });
     });
-
-   
+  
   ordenarPorPrecio(ordenarPor);
   data.forEach(mercaderiaDetalle => {
-
-   
-
         let tipo=document.getElementById(`${mercaderiaDetalle.tipo.descripcion.replace(/\s/g,"")}`);
         let elemento = document.querySelector(`li[data-id-mercaderia="${mercaderiaDetalle.id}"]`);
         if(elemento.classList.contains('d-none')) elemento.classList.remove('d-none');
         else elemento.classList.add('d-none');
 
-
     })
 
-  
   }
-
 
   function ordenarPorPrecio(orden){
     const elementosAuxiliares = document.querySelectorAll(".auxiliar");
-    
     const elementosMercaderia = [];
     elementosAuxiliares.forEach(elemento =>{
         elementosMercaderia.push(elemento);
     });
-   
     
     const hijosMercaderia = [];
     elementosAuxiliares.forEach(elemento =>{
@@ -161,12 +150,8 @@ async function   handleFiltrarMercaderia(order,filter,name) {
   hijosMercaderia.sort(function(a, b) {
     const precioA = obtenerPrecio(a);
     const precioB = obtenerPrecio(b);
-
-    if (orden === 'DESC') {
-      return precioB - precioA; // Ordenar de mayor a menor
-    } else {
-      return precioA - precioB; // Ordenar de menor a mayor
-    }
+    if (orden === 'DESC') return (precioA-precioB)*-1; 
+      return precioA - precioB; 
   });
 
   elementosMercaderia.forEach(mercaderia => {
@@ -174,8 +159,6 @@ async function   handleFiltrarMercaderia(order,filter,name) {
         mercaderia.firstChild.remove();
     }
   });
-
-  // Añadir los elementos ordenados nuevamente a la lista de mercadería
   hijosMercaderia.forEach(elemento => {
     if (!elemento.dataset.idTipoMercaderia) {
       return;
@@ -193,21 +176,13 @@ function direccionarMercaderia(){
   const mercaderias = document.querySelectorAll('.mercaderiaIndividual');
 
   mercaderias.forEach(mercaderia =>{
-
     mercaderia.addEventListener('click',() =>{
-      console.log(mercaderia);
       const idMercaderia = mercaderia.dataset.idMercaderia;
       const idTipoMercaderia = mercaderia.dataset.idTipoMercaderia;
       const urlProducto = `producto.html?id=${idMercaderia}&tipo=${idTipoMercaderia}`;
-
-      console.log(urlProducto);
       window.location.href = urlProducto;
-
-
     })
     });
-  
-
 }
 
 

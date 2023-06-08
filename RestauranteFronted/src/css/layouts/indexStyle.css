@@ -1,0 +1,202 @@
+
+
+/* Presentation */
+.presentation {
+    background-color: black;
+    background-position: center center;
+    background-size: cover;
+    height: 40vh;
+    min-height: 60rem;
+    object-fit: cover;
+    object-position: center center;
+    animation: rotateBackground 20s linear infinite;
+}
+@keyframes rotateBackground {
+    0%,100% {
+      background-image: url(  ../../img/jay-wennington-N_Y88TWmGwA-unsplash.jpg);
+    }
+    33% {
+      background-image: url(../../img/alex-haney-CAhjZmVk5H4-unsplash.jpg);
+    }
+    66% {
+      background-image: url(../../img/priscilla-du-preez-W3SEyZODn8U-unsplash.jpg);
+    }
+  }
+
+.titulo{
+   color: white;
+   padding-top: 45rem;
+   font-size: 3rem;
+   font-weight: bold;
+   line-height: 5rem;
+   text-align: left;
+   text-shadow: 1rem 1rem 1rem black;
+   animation: floatingAnimation 3s ease-in-out infinite;
+   -webkit-text-stroke: 1px black;
+
+}
+@keyframes floatingAnimation {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+/**MENU **/
+.galeria-menu {
+    text-align: center;
+    background-color: black;
+    margin: 0 auto; 
+    padding-bottom: 5rem;
+  }
+  
+  .galeria-menu h2 {
+    margin: 0;
+    padding: 2rem 0rem;
+    color: white;
+    text-align: center;
+  }
+  
+  .galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 2rem;
+
+  }
+  
+  .v-menu {
+    color: var(--blanco);
+    text-transform: uppercase;
+    background-color: var(--rojoPrimario);
+    padding: 1rem;
+    width: 50rem;
+    margin: 2rem auto;
+    border-radius: 1rem;
+    transition: font-size 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+  }
+  .v-menu:hover {
+    box-shadow: 0 0 3rem rgba(207, 5, 5, 0.5);
+    font-size: 2rem;
+  }
+  .v-pedidos{
+    color: var(--blanco);
+    text-transform: uppercase;
+    padding: 1rem;
+    width: 50rem;
+    margin: 2rem auto;
+    border-radius: 1rem;
+    transition: font-size 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  .v-pedidos:hover {
+    box-shadow: 0 0 3rem rgba(255, 252, 252, 0.3);
+    font-size: 2rem;
+  }
+  .foto-galeria {
+    max-height: 23.5rem;
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: max-height 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  
+}
+  .foto-galeria:hover{
+    max-height: 24rem;
+    box-shadow: 0 0 3rem rgba(243, 243, 243, 0.5);
+
+  }
+  
+
+
+/**PEDIDOS**/
+.pedidos {
+    background-color: black;
+    background-image: url(../../img/daniel-bradley-y_WDEY9e6mA-unsplash.jpg);
+    height: 80rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .pedidos h2 {
+    color: white;
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem 5rem;
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .pedidos p {
+    font-size: 2.4rem;
+    text-align: center;
+    line-height: 1.5;
+    color: white;
+    margin-top: 2rem;
+    padding: 1rem 10rem;
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .pedidos a {
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.8);
+
+  }
+
+  /** NOSOTORS ***/
+  .nosotros {
+    background-color: var(--negro);
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding: 4rem;
+  }
+  
+  .nosotros h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--blanco);
+  }
+  
+  .nosotros-flex {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .texto-nosotros {
+    flex: 1;
+    color: var(--blanco);
+    font-size: 1.8rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    flex-basis:calc(50% - 1rem);
+
+  }
+  
+  .foto-nosotros {
+    flex: 1;
+    
+    flex-basis:calc(50% - 1rem);
+
+  }
+  
+  .nosotros .imagen {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: 0 auto;
+  }

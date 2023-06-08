@@ -12,7 +12,6 @@ const getMercaderia = async(filtrarPor,buscarPorNombre,ordenarPor) =>{
             result = await response.json();
         }
 
-
         for (const mer of result) {
             let resultadoDetalle = await fetch(`https://localhost:7030/api/v1/Mercaderia/${mer.id}?tipo=&orden=ASC`);
             if (resultadoDetalle.ok) {

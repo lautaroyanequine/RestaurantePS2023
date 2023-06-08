@@ -1,7 +1,7 @@
 export default function Alerta(texto,clase){
     return ` 
             <div class="${clase}">
-                    <p>${texto}</p>
+                  <p>${texto}</p>
             </div>
     `;
 }

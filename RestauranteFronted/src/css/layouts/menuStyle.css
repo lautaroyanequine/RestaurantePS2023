@@ -1,0 +1,257 @@
+/** PAGINA MENU **/ 
+
+.barra-formaEntrega, .barra-busqueda{
+    background-color: var(--gris);
+    display: flex;
+    justify-content:space-between;
+    border-radius: 1rem;
+    height: 7rem;
+    margin-top: 2rem;
+}
+.forma-entrega{
+    display: flex;
+    flex: 0 1 calc(33% - 1rem);
+    justify-content: space-evenly;
+    align-items: center;
+    color: var(--grisClaro);
+    padding: 0rem 1rem;
+    background-color: var(--gris);
+    margin: 1rem ;
+    border-radius: 1rem;
+    max-width: 25rem;
+}
+.logo-forma-entrega{
+    filter: invert(81%) sepia(5%) saturate(199%) hue-rotate(322deg) brightness(104%) contrast(85%);
+    max-width: 3rem;
+}
+
+.forma-entrega p{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.forma-entrega.seleccionado{
+    background-color: var(--negro);
+}
+.forma-entrega.seleccionado p{
+    color: var(--blanco);
+}
+.seleccionado img{
+    filter: invert(100%) sepia(0%) saturate(7479%) hue-rotate(70deg) brightness(99%) contrast(107%);
+}
+
+
+
+.busqueda{
+    display: flex;
+    flex: 0 1 calc(33% - 1rem);
+    justify-content: space-evenly;
+    align-items: center;
+    color: var(--grisClaro);
+    padding: 0rem 1rem;
+    background-color: var(--grisClaro);
+    margin: 1rem ;
+    border-radius: 1rem;
+    max-width: 25rem;
+    margin-left: 2rem;
+    cursor: pointer;
+
+}
+.busqueda select,input {
+    text-align: end;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    outline: none;
+    background-color: var(--grisClaro);
+    color: var(--grisOscuro);
+    padding: 1rem;
+}
+  .busqueda object{
+    filter: invert(37%) sepia(4%) saturate(120%) hue-rotate(47deg) brightness(99%) contrast(92%);
+
+  }
+  .orden-animacion object {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .orden-animacion select {
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .orden-animacion:hover object {
+    transform: rotate(180deg);
+  }
+  
+
+.filtro-animacion object {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .filtro-animacion:hover object {
+    transform: rotate(90deg);
+  }
+  
+
+.label-busqueda {
+    display: inline-block;
+    padding: 0.5rem;
+    transition: transform 0.3s ease-in-out;
+  }
+  .icono-lupa {
+    display: block;
+    width: 20px;
+    height: 20px;
+    fill: var(--grisOscuro);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .input-busqueda {
+    flex: 1;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--grisOscuro);
+    padding: 0.5rem;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .busqueda-animacion:hover .label-busqueda {
+    transform: translateX(-5px);
+  }
+  
+  .busqueda-animacion:hover .icono-lupa {
+    transform: rotate(45deg);
+  }
+
+.busqueda select,input {
+    text-align: end;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    outline: none;
+    background-color: var(--grisClaro);
+    color: var(--grisOscuro);
+    padding: 1rem;
+  }
+  .busqueda object{
+    filter: invert(37%) sepia(4%) saturate(120%) hue-rotate(47deg) brightness(99%) contrast(92%);
+
+  }
+
+ .tipo-mercaderia-header{
+    margin: 0;
+    margin-top: 1rem;
+    color: var(--blanco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--blanco);
+    height: 7rem;
+  }
+
+
+  .logo-desplegable{
+    filter: invert(100%) sepia(0%) saturate(7479%) hue-rotate(70deg) brightness(99%) contrast(107%);
+    width: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+.logo-desplegable:hover {
+    transform: rotate(90deg);
+  }
+
+.mercaderia{
+    color: var(--blanco);
+    display: flex;
+    flex: 0 0 calc(33.3% - 1rem);
+    justify-content: space-between;
+    align-items: start;
+    height: 10rem;
+    margin: 2rem 0;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0);
+    transition: height 0.3s ease-in-out, box-shadow 0.3s ease-in-out,aling-items 0.3s ease-in-out;
+}
+.mercaderia:hover{
+    align-items: center;
+    height: 11rem;
+  box-shadow: 0 0 .8rem rgba(255, 255, 255, 0.5);
+}
+.foto-mercaderia{
+    border-radius: 1rem;
+    height: 10rem;
+    width: 12.5rem;
+    object-fit: cover;
+    object-position: center;
+   
+}
+.texto-mercaderia{
+    margin: 0;
+    line-height: 1;
+    height: 100%;
+    width: 70rem;
+    margin-left: 2rem;
+}
+
+.texto-mercaderia p{
+    font-size: 1.6rem;
+    line-height: 1;
+    text-align: start;
+}
+.precio-mercaderia{
+font-weight: bold;
+}
+.barra-carrito h4{
+    color: var(--blanco);
+    text-transform: uppercase;
+    background-color: var(--rojoPrimario);
+    font-size: 2rem;
+    padding: 1rem;
+    width: 50rem;
+    margin: 2rem auto;
+    border-radius: 1rem;
+    transition: font-size 0.3s ease-in-out;
+}
+.barra-carrito h4:hover{
+  font-size: 2.4rem;
+}
+
+
+.logo-carrito {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 5rem;
+    margin: 2rem;
+    padding: 0.8rem 1.5rem;
+    animation: floatingAnimation 3s ease-in-out infinite;
+    cursor: pointer;
+  }
+  
+  .logo-carrito img {
+    margin: 0 auto;
+    height: 3rem;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(176deg) brightness(106%) contrast(106%);
+    transition: height 0.3s ease-in-out,filter 0.3s ease-in-out;
+
+}
+  .logo-carrito img:hover{
+    height: 3.4rem;
+    filter: invert(24%) sepia(60%) saturate(3163%) hue-rotate(340deg) brightness(100%) contrast(92%);;
+  }
+  
+  @keyframes floatingAnimation {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
